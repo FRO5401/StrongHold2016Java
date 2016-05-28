@@ -3,7 +3,7 @@ package org.usfirst.frc.team5401.robot;
 //import edu.wpi.first.wpilibj.buttons.Button;
 //import org.usfirst.frc.team5401.robot.commands.ExampleCommand;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+//import edu.wpi.first.wpilibj.buttons.JoystickButton;
 //import org.usfirst.frc.team5401.robot.commands.*;
 
 /**
@@ -19,12 +19,12 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
 	
 	private Joystick XboxController = new Joystick(0);
-	private Joystick MedalOfHonorController = new Joystick(1);
+//	private Joystick MedalOfHonorController = new Joystick(1);
 	
 	public OI(){
 	
 	//Create buttons
-	JoystickButton XboxA 					= new JoystickButton(XboxController, 1);
+/*	JoystickButton XboxA 					= new JoystickButton(XboxController, 1);
 	JoystickButton XboxB					= new JoystickButton(XboxController, 2);
 	JoystickButton XboxX					= new JoystickButton(XboxController, 3);
 	JoystickButton XboxY					= new JoystickButton(XboxController, 4);
@@ -34,7 +34,7 @@ public class OI {
 	JoystickButton XboxStart				= new JoystickButton(XboxController, 8);
 	JoystickButton XboxLeftStickButton		= new JoystickButton(XboxController, 9);
 	JoystickButton XboxRightStickButton 	= new JoystickButton(XboxController, 10);
-		
+*/		
 	}
     
 	//XXX NOT worrying about SPT for now
