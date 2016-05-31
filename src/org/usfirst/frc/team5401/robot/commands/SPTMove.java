@@ -10,6 +10,7 @@ public class SPTMove extends Command {
     public SPTMove() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(spt);
     }
 
     // Called just before this Command runs the first time
