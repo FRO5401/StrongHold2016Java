@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 //XXX Unsure why this is needed here, possibly for autonomous
 //import org.usfirst.frc.team5401.robot.commands.XboxMove;
 import org.usfirst.frc.team5401.robot.subsystems.DriveBase;
+import org.usfirst.frc.team5401.robot.subsystems.SPT;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,6 +21,7 @@ public class Robot extends IterativeRobot {
 	
 	//XXX This area is basically your CommandBase::init() from C++
 	public static final DriveBase drivebase = new DriveBase();
+	public static SPT spt = SPT();
 	public static OI oi;
 
     Command autonomousCommand;
