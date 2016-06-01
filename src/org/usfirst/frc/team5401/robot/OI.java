@@ -18,11 +18,11 @@ public class OI {
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
 	
-	private Joystick XboxController = new Joystick(0);
+	private Joystick XboxController;
 //	private Joystick MedalOfHonorController = new Joystick(1);
 	
 	public OI(){
-	
+		XboxController = new Joystick(1);
 	//Create buttons
 /*	JoystickButton XboxA 					= new JoystickButton(XboxController, 1);
 	JoystickButton XboxB					= new JoystickButton(XboxController, 2);

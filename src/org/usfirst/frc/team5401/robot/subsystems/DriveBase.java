@@ -3,15 +3,17 @@ package org.usfirst.frc.team5401.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 //This is preferred
-import edu.wpi.first.wpilibj.Victor;
+/*import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Timer;
-import org.usfirst.frc.team5401.robot.RobotMap;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+*/
 
 //OR 
-//import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.*;
+
+import org.usfirst.frc.team5401.robot.RobotMap;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.commands.XboxMove;
 /**

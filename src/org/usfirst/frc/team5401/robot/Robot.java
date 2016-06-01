@@ -19,7 +19,7 @@ import org.usfirst.frc.team5401.robot.subsystems.DriveBase;
 public class Robot extends IterativeRobot {
 	
 	//XXX This area is basically your CommandBase::init() from C++
-	public static final DriveBase drivebase = new DriveBase();
+	public static DriveBase drivebase;
 	public static OI oi;
 
     Command autonomousCommand;
@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+    	drivebase = new DriveBase();
 		oi = new OI();
         // instantiate the command used for the autonomous period
 		//XXX IGNORING AUTONOMOUS FOR NOW
