@@ -3,14 +3,14 @@ package org.usfirst.frc.team5401.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 //This is preferred
-/*import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Timer;
-*/
+
 
 //OR 
-import edu.wpi.first.wpilibj.*;
+//import edu.wpi.first.wpilibj.*;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,12 +20,11 @@ import org.usfirst.frc.team5401.robot.commands.XboxMove;
  *
  */
 public class DriveBase extends Subsystem {
-    
-    // put methods for controlling this subsystem
-    // here. Call these from Commands.
 	
-//	float kP;	//Uncomment to get value from dashboard
-	private double kP_Right;			//Uncomment for getting value from dashboard
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+    
+	private double kP_Right;
 	private double kP_Left;
 	private double DPPLeft;
 	private double DPPRight;
@@ -38,7 +37,7 @@ public class DriveBase extends Subsystem {
 	
 	private ADXRS450_Gyro MainGyro;
 
-	//New Stuff
+	//Encoders
 	private Encoder LeftEnc;
 	private Encoder RightEnc;
 
@@ -46,34 +45,27 @@ public class DriveBase extends Subsystem {
 	private Timer TimeCount;
 	
 	public DriveBase(){
-		//XXX Don't see why needed but it might be
-		//super();
+//XXX	Don't see why super is needed but it might be
+//		super();
 		LeftDrive1 	= new Victor(RobotMap.LeftMotor1);
 		LeftDrive2	= new Victor(RobotMap.LeftMotor2);
 		RightDrive1	= new Victor(RobotMap.RightMotor1);
 		RightDrive2	= new Victor(RobotMap.RightMotor2);
-//		LeftShift 	= new DoubleSolenoid(SolenoidCAN_ID, Shift_LeftFwd, Shift_LeftRev); //Gear shifting is OUT of design
-//		RightShift 	= new DoubleSolenoid(SolenoidCAN_ID, Shift_RightFwd, Shift_RightRev);
 
 		//Sensors
 		//LeftEnc = new Encoder(1,1,true,Encoder.k1X);
-		LeftEnc		= new Encoder(RobotMap.Enc_Left_A, RobotMap.Enc_Left_B, true, Encoder.EncodingType.k1X);
-		RightEnc	= new Encoder(RobotMap.Enc_Right_A, RobotMap.Enc_Right_B, true, Encoder.EncodingType.k1X);
-		//Displays the Distance for Encoder Drive for user input
-		double DashAutoDistance = 0;//Remove or comment this and below it, this is for calibrating the auto drive
-		SmartDashboard.putNumber("Distance for Encoder Drive", DashAutoDistance);
-//		SmartDashboard.putNumber("Initial Gyro Value", initialGyro);
+		LeftEnc	 = new Encoder(RobotMap.Enc_Left_A, RobotMap.Enc_Left_B, true, Encoder.EncodingType.k1X);
+		RightEnc = new Encoder(RobotMap.Enc_Right_A, RobotMap.Enc_Right_B, true, Encoder.EncodingType.k1X);
 
-		MainGyro	= new ADXRS450_Gyro();
-	 //	DS_ForgetInstance();
+		MainGyro = new ADXRS450_Gyro();
 	 	TimeCount = new Timer();
 	 	TimeCount.reset();
 	 	MainGyro.reset();
-	 //	LeftEnc.Reset();Doesn't work when enabling and disabling
-	 //	RightEnc.Reset();
+//		LeftEnc.reset();Doesn't work when enabling and disabling
+//		RightEnc.reset();
 	 	
 	 	//Offset for drive motors when driving autonomously
-	 	kP_Right = .9;			//Uncomment for getting value from dashboard
+	 	kP_Right = .9;
 	 	kP_Left = .835;
 	 	DPPRight = (1/6.318);
 	 	DPPLeft = (-1/6.318);
@@ -104,7 +96,6 @@ public class DriveBase extends Subsystem {
     RightDrive1.set(RightDriveDesired);
     RightDrive2.set(RightDriveDesired);
 
-    //New stuff
     //Sets the ratio for pulses to inches
     LeftEnc.setDistancePerPulse(DPPLeft);
     RightEnc.setDistancePerPulse(DPPRight);
@@ -116,7 +107,7 @@ public class DriveBase extends Subsystem {
     SmartDashboard.putNumber("Right Encoder Distance Traveled", 	RightEnc.getDistance());
 
 //    SmartDashboard.getNumber("Initial Gyro Value", initialGyro);
-    //SmartDashboard.putNumber("Gyro Angle", ReportGyro());	//doesn't work for some reason
+//    SmartDashboard.putNumber("Gyro Angle", ReportGyro());	//doesn't work for some reason
     SmartDashboard.putNumber("Gyro getAngle", MainGyro .getAngle());
     SmartDashboard.putNumber("Gyro ReportGyro", ReportGyro());
     }
@@ -168,14 +159,14 @@ public class DriveBase extends Subsystem {
 
   public float ReportGyro()
   {
-  	//This adjusts for gyro creep which is current nonexistant
-   /*	float Angle = (GyroScalar * MainGyro	->	getAngle());
-     	double Time = TimeCount .get();
+  	//This adjusts for gyro creep which is current nonexistent
+   /*	float Angle = (GyroScalar * MainGyro.getAngle());
+     	double Time = TimeCount.get();
      	float AdjAngle = Angle - (GyroLinearAdj * Time + GyroOffset);//Compensates for gyro creep - basically subtracts out mx+b the linear creep function
     	return AdjAngle;
   */
 	//error: cannot convert double to float, so I used casting
-  	return (float)MainGyro.getAngle();
+  	return (float) MainGyro.getAngle();
   }
 
   public float getEncoderDistance(){
