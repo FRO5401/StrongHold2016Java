@@ -71,7 +71,7 @@ public class Scimitar extends Subsystem {
     	//Currently not implemented
 //   	setDefaultCommand(new ScimitarInOut());
     }
-    void Control(double LeftScimChange, double RightScimChange, boolean Override)
+    public void Control(double LeftScimChange, double RightScimChange, boolean Override)
     {
     	SmartDashboard.putNumber("ScimitarLeftEnc Distance", ReportLeftPosition());
     	SmartDashboard.putNumber("ScimitarRightEnc Distance", ReportRightPosition());
@@ -99,61 +99,61 @@ public class Scimitar extends Subsystem {
     }
 
 
-    double ReportLeftPosition(){
+    public double ReportLeftPosition(){
     	SmartDashboard.putNumber("SCIM LeftEnc Dist", ScimitarLeftEnc.getDistance());
     	return ScimitarLeftEnc.getDistance() - StartingOffset;
     }
 
-    double ReportRightPosition(){
+    public double ReportRightPosition(){
     	SmartDashboard.putNumber("SCIM RightEnc Dist", ScimitarRightEnc.getDistance());
     	return ScimitarRightEnc.getDistance() - StartingOffset;
     }
 
-    double ReportLeftRaw(){
+    public double ReportLeftRaw(){
     	SmartDashboard.putNumber("SCIM LeftEnc Raw", ScimitarLeftEnc.get());
     	return ScimitarLeftEnc.get();
     }
 
-    double ReportRightRaw(){
+    public double ReportRightRaw(){
     	SmartDashboard.putNumber("SCIM RightEnc Raw", ScimitarRightEnc.get());
     	return ScimitarRightEnc.get();
     }
 
     //XXX Switches are all reversed because they default to true and go false when tripped
-    boolean ReportRightFarSwitch(){
+    public boolean ReportRightFarSwitch(){
     	SmartDashboard.putBoolean("Scim R Far Limit", !(RightFarLimit.get()));
     	return !(RightFarLimit.get());
     }
 
-    boolean ReportRightCloseSwitch(){
+    public boolean ReportRightCloseSwitch(){
     	SmartDashboard.putBoolean("Scim R Close Limit", !(RightCloseLimit.get()));
     	return !(RightCloseLimit.get());
     }
 
-    boolean ReportLeftFarSwitch(){
+    public boolean ReportLeftFarSwitch(){
     	SmartDashboard.putBoolean("Scim L Far Limit", !(LeftFarLimit.get()));
     	return !(LeftFarLimit.get());
     }
 
-    boolean ReportLeftCloseSwitch(){
+    public boolean ReportLeftCloseSwitch(){
     	SmartDashboard.putBoolean("Scim L Close Limit", !(LeftCloseLimit.get()));
     	return !(LeftCloseLimit.get());
     }
 
-    boolean ReportAnySwitches(){
+    public boolean ReportAnySwitches(){
     	boolean Any = (RightFarLimit.get()) || (RightCloseLimit.get()) || (LeftFarLimit.get()) || (LeftCloseLimit.get());
 
     	return !Any;
     }
 
-    void ResetEncoders(){
+    public void ResetEncoders(){
     	ScimitarLeftEnc.reset();
     	ScimitarRightEnc.reset();
     	ScimitarRightEnc.setDistancePerPulse(ScimitarRightEncDPP);
     	ScimitarLeftEnc.setDistancePerPulse(ScimitarLeftEncDPP);
     }
 
-    void Stop(){
+    public void Stop(){
     	LeftScimitarExtender.set(0);
     	RightScimitarExtender.set(0);
     }

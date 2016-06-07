@@ -3,8 +3,8 @@ package org.usfirst.frc.team5401.robot;
 //import edu.wpi.first.wpilibj.buttons.Button;
 //import org.usfirst.frc.team5401.robot.commands.ExampleCommand;
 import edu.wpi.first.wpilibj.Joystick;
-//import edu.wpi.first.wpilibj.buttons.JoystickButton;
-//import org.usfirst.frc.team5401.robot.commands.*;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.usfirst.frc.team5401.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -18,52 +18,94 @@ public class OI {
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
 	
-	private Joystick XboxController;
-//	private Joystick MedalOfHonorController = new Joystick(1);
+	public Joystick XboxController;
+	public Joystick MedalOfHonorController;
+	
+	//There has to be a better way to do this and I think there is. Look at Team 1923 on GitHub
+	JoystickButton XboxA;
+	JoystickButton XboxB;
+	JoystickButton XboxX;
+	JoystickButton XboxY;
+	JoystickButton XboxUpperLeftTrig;
+	JoystickButton XboxUpperRightTrig;
+	JoystickButton XboxBack;
+	JoystickButton XboxStart;
+	JoystickButton XboxLeftStickButton;
+	JoystickButton XboxRightStickButton;
+
+	JoystickButton MOHButtonSquare;
+	JoystickButton MOHButtonX;
+	JoystickButton MOHButtonCircle;
+	JoystickButton MOHButtonTriangle;
+	JoystickButton MOHLeftBumper;
+	JoystickButton MOHRightBumper;
+	JoystickButton MOHLeftTrigger;
+	JoystickButton MOHRightTrigger;
+	JoystickButton MOHSelectButton;
+	JoystickButton MOHStartButton;
+	JoystickButton MOHLeftStickButton;
+	JoystickButton MOHRightStickButton;
+	JoystickButton MOHHomeButton;	
 	
 	public OI(){
 		XboxController = new Joystick(1);
-	//Create buttons
-/*	JoystickButton XboxA 					= new JoystickButton(XboxController, 1);
-	JoystickButton XboxB					= new JoystickButton(XboxController, 2);
-	JoystickButton XboxX					= new JoystickButton(XboxController, 3);
-	JoystickButton XboxY					= new JoystickButton(XboxController, 4);
-	JoystickButton XboxUpperLeftTrig		= new JoystickButton(XboxController, 5);
-	JoystickButton XboxUpperRightTrig		= new JoystickButton(XboxController, 6);
-	JoystickButton XboxBack					= new JoystickButton(XboxController, 7);
-	JoystickButton XboxStart				= new JoystickButton(XboxController, 8);
-	JoystickButton XboxLeftStickButton		= new JoystickButton(XboxController, 9);
-	JoystickButton XboxRightStickButton 	= new JoystickButton(XboxController, 10);
-*/		
-	}
-    
-	//XXX NOT worrying about SPT for now
-	//SPT Buttons
-	//Feeder Buttons //NOTE: Directions are correct, command names are not necessarily correct
-/*	MOHRightTrigger	-> WhenPressed(new FeedOutFromOuter());
-	MOHRightTrigger	-> WhenReleased(new FeederStop());
-
-	MOHLeftTrigger 	-> WhenPressed(new FeedInFromOuter());
-	MOHLeftTrigger 	-> WhenReleased(new FeederStop());
-
-	MOHLeftBumper	-> WhenPressed(new FeedOutFromInner());
-	MOHLeftBumper	-> WhenReleased(new FeederStop());
-
-//	MOHRightBumper	-> WhenPressed(new FeedInFromInner());
-//	MOHRightBumper  -> WhenReleased(new FeederStop());
+		MedalOfHonorController = new Joystick(2);
+		
+		//Create buttons
+		XboxA 					= new JoystickButton(XboxController, 1);
+		XboxB					= new JoystickButton(XboxController, 2);
+		XboxX					= new JoystickButton(XboxController, 3);
+		XboxY					= new JoystickButton(XboxController, 4);
+		XboxUpperLeftTrig		= new JoystickButton(XboxController, 5);
+		XboxUpperRightTrig		= new JoystickButton(XboxController, 6);
+		XboxBack				= new JoystickButton(XboxController, 7);
+		XboxStart				= new JoystickButton(XboxController, 8);
+		XboxLeftStickButton		= new JoystickButton(XboxController, 9);
+		XboxRightStickButton 	= new JoystickButton(XboxController, 10);
 	
-	MOHButtonSquare -> WhenPressed(new ScimitarMoveToPositionZero());
+		MOHButtonSquare			= new JoystickButton(MedalOfHonorController, 1);
+		MOHButtonX				= new JoystickButton(MedalOfHonorController, 2);
+		MOHButtonCircle			= new JoystickButton(MedalOfHonorController, 3);
+		MOHButtonTriangle		= new JoystickButton(MedalOfHonorController, 4);
+		MOHLeftBumper			= new JoystickButton(MedalOfHonorController, 5);
+		MOHRightBumper			= new JoystickButton(MedalOfHonorController, 6);
+		MOHLeftTrigger			= new JoystickButton(MedalOfHonorController, 7);
+		MOHRightTrigger			= new JoystickButton(MedalOfHonorController, 8);
+		MOHSelectButton			= new JoystickButton(MedalOfHonorController, 9);
+		MOHStartButton			= new JoystickButton(MedalOfHonorController, 10);
+		MOHLeftStickButton		= new JoystickButton(MedalOfHonorController, 11);
+		MOHRightStickButton		= new JoystickButton(MedalOfHonorController, 12);
+		MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);
+		
+		
+		//XXX Currently ignored as I don't feel like implementing all the Feeder commands
+		//SPT Buttons
+		//Feeder Buttons //NOTE: Directions are correct, command names are not necessarily correct
+/*		MOHRightTrigger.whenPressed(new FeedOutFromOuter());
+		MOHRightTrigger.whenReleased(new FeederStop());
 
-//	MOHButtonTriangle -> WhenPressed(new ScimitarInOut());
-//	MOHButtonX 		-> WhenPressed(new ScimitarPrepareToScale());
+		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
+		MOHLeftTrigger.whenReleased(new FeederStop());
+
+		MOHLeftBumper.whenPressed(new FeedOutFromInner());
+		MOHLeftBumper.whenReleased(new FeederStop());
+
+//		MOHRightBumper.whenPressed(new FeedInFromInner());
+//		MOHRightBumper.whenReleased(new FeederStop());
+		
+		MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
+
+//		MOHButtonTriangle.whenPressed(new ScimitarInOut());
+//		MOHButtonX.whenPressed(new ScimitarPrepareToScale());
 
 
-//	MOHStartButton	-> WhenPressed(new AutoDeliverBall(1.5)); //Commented out, using button to auto drive
+//		MOHStartButton.whenPressed(new AutoDeliverBall(1.5)); //Commented out, using button to auto drive
 
 
-//	MOHButtonCircle -> WhenPressed(new MoveSPTtoPosition(55)); //55 is Delivery
-//	MOHButtonX -> WhenPressed(new MoveSPTtoPosition(-21)); //-21 is Infeed
-*/	
+//		MOHButtonCircle.whenPressed(new MoveSPTtoPosition(55)); //55 is Delivery
+//		MOHButtonX.whenPressed(new MoveSPTtoPosition(-21)); //-21 is Infeed
+*/		
+	}	
 
 	public double ReadXboxLeftStickX()
 	{
@@ -97,10 +139,10 @@ public class OI {
 		return XboxController.getRawButton(RobotMap.RBumper_ID);
 	}
 
-/*	double getUpOrDownValueInfeeder(){
-		double UpOrDownValue = MedalOfHonorController -> getRawAxis(1);
+	public double getUpOrDownValueInfeeder(){
+		double UpOrDownValue = MedalOfHonorController.getRawAxis(1);
 		return UpOrDownValue;
-	}*/
+	}
 
 	public boolean getButtonB(){
 		return XboxController.getRawButton(RobotMap.XboxB_ID);
@@ -130,15 +172,15 @@ public class OI {
 		return XboxController.getRawButton(RobotMap.XboxR3_ID);
 	}
 
-/*	int getMOHPOVState(){
+	public int getMOHPOVState(){
 		int POV = MedalOfHonorController.getPOV();//gets the POV of the D-pad on the MOHController, an unpressed D-pad is -1, otherwise its the angle at which it is pressed
 		//Use specific values, not inequalities
 		if (POV == 315 || POV == 45 || POV == 0){
-			std::cout << "POV Up\n";
+			System.out.println("POV Up");
 			return -1;	//Up
 		}
 		else if (POV == 135 || POV == 225 || POV == 180){
-			std::cout << "POV Down\n";
+			System.out.println("POV Down");
 			return 1; 	//Down
 		}
 		else
@@ -146,7 +188,7 @@ public class OI {
 			return 0; 	//not pressed/error or incorrect section is pressed
 						//Does nothing
 		}
-	} */
+	}
 
 	/*void SendXboxRumble(int j){
 		for ( int i = 0; i < j; i++ ) {
@@ -158,7 +200,7 @@ public class OI {
 			Wait(2);
 		}
 	}*/
-	//XXX again, ignoring MOH for now
+	
 /*	void SendMOHRumble(int j){
 		for ( int i = 0; i < j; i++ ) {
 			MedalOfHonorController	->	SetRumble(Joystick::kLeftRumble, 1);
@@ -168,39 +210,39 @@ public class OI {
 			MedalOfHonorController	->	SetRumble(Joystick::kRightRumble, 0);
 			Wait(2);
 		}
-	}
-
-	boolean getMOHButtonStart(){
-		return MedalOfHonorController.getRawButton(MOHStartID);
-	}
-
-	double ReadMOHRightStickY(){
-		return MedalOfHonorController -> getRawAxis(3);
-	}
-
-	boolean getMOHRightStickButton(){
-		return MedalOfHonorController -> getRawButton(12);
-	}
-
-	boolean getMOHButtonL3(){
-		return MedalOfHonorController -> getRawButton(MOHL3_ID);
-	}
-
-	boolean getMOHButtonTriangle(){
-		return MedalOfHonorController -> getRawButton(4);
-	}
-
-	boolean getMOHButtonCircle(){
-		return MedalOfHonorController -> getRawButton(3);
-	}
-
-	boolean getMOHRightBumper(){
-		return MedalOfHonorController -> getRawButton(6);
-	}
-
-	boolean getSelectButton(){
-		return MedalOfHonorController -> getRawButton(9);
 	} */
+
+	public boolean getMOHButtonStart(){
+		return MedalOfHonorController.getRawButton(RobotMap.MOHStartID);
+	}
+
+	public double ReadMOHRightStickY(){
+		return MedalOfHonorController.getRawAxis(3);
+	}
+
+	public boolean getMOHRightStickButton(){
+		return MedalOfHonorController.getRawButton(12);
+	}
+
+	public boolean getMOHButtonL3(){
+		return MedalOfHonorController.getRawButton(RobotMap.MOHL3_ID);
+	}
+
+	public boolean getMOHButtonTriangle(){
+		return MedalOfHonorController.getRawButton(4);
+	}
+
+	public boolean getMOHButtonCircle(){
+		return MedalOfHonorController.getRawButton(3);
+	}
+
+	public boolean getMOHRightBumper(){
+		return MedalOfHonorController.getRawButton(6);
+	}
+
+	public boolean getSelectButton(){
+		return MedalOfHonorController.getRawButton(9);
+	}
 
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to

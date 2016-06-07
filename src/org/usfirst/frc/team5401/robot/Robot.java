@@ -7,7 +7,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 //XXX Unsure why this is needed here, possibly for autonomous
 //import org.usfirst.frc.team5401.robot.commands.XboxMove;
-import org.usfirst.frc.team5401.robot.subsystems.DriveBase;
+//It is best to simply import all subsystems as all should be used here anyway
+import org.usfirst.frc.team5401.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,6 +21,10 @@ public class Robot extends IterativeRobot {
 	
 	//XXX This area is basically your CommandBase::init() from C++
 	public static DriveBase drivebase;
+	public static HookShoulder hookshoulder;
+	public static Feeder feeder;
+	public static Scimitar scimitar;
+	public static SPT spt;
 	public static OI oi;
 
     Command autonomousCommand;
@@ -31,6 +36,10 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
     	drivebase = new DriveBase();
 		oi = new OI();
+		hookshoulder = new HookShoulder();
+		feeder = new Feeder();
+		scimitar = new Scimitar();
+		spt = new SPT();
         // instantiate the command used for the autonomous period
 		//XXX IGNORING AUTONOMOUS FOR NOW
 		//autonomousCommand = new ExampleCommand();

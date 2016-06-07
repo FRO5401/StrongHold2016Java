@@ -4,9 +4,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team5401.robot.commands.HookShoulderUpDown;
 
 
 /**
@@ -54,9 +55,9 @@ public class HookShoulder extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	
     	//Currently not implemented
-//  	setDefaultCommand(new HookShoulderUpDown());
+    	setDefaultCommand(new HookShoulderUpDown());
     }
-    void UpAndDown(double HookShoulderChangeValue, boolean Override){
+    public void UpAndDown(double HookShoulderChangeValue, boolean Override){
     /*Add a constant above, and make this conditional on being within a max/min reading on the Pot.
      * This is to keep it from going above a certain angle for rules and below a certain angle so it doesn't
      * keep running once it gets into the robot
@@ -73,12 +74,12 @@ public class HookShoulder extends Subsystem {
     	HookShoulderMotor.set(HookShoulderChangeValue * HookShoulderMotorMax);
    	}
 
-   	double ReportAngle(){
+   	public double ReportAngle(){
     	//sets the min and max speed the motor of that the SPT has
     	return HookShoulderPot.get();
    	}
     	
-    void StopHookShoulder(){
+    public void StopHookShoulder(){
    		HookShoulderMotor.set(0);
    	}
 }

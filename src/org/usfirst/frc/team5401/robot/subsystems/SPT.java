@@ -4,9 +4,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team5401.robot.commands.SPTMove;
 
 /**
  *
@@ -78,12 +79,12 @@ public class SPT extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	
     	//Command not currently implemented
-//		setDefaultCommand(new SPTMove());
+		setDefaultCommand(new SPTMove());
     	Reset();
     }
     
     //This function sets the shoulder motor of SPT to a certain direction between up and down
-    void UpAndDown(double ShoulderChangeValue, boolean Override){
+    public void UpAndDown(double ShoulderChangeValue, boolean Override){
     	if (!Override) {
     	//Zero out the change if angle is at its upper limit and trying to increase
     	ShoulderChangeValue = ((ShoulderChangeValue < 0) && (ReportAngle() >= SPTMaxAngle)) ? 0 : ShoulderChangeValue;
@@ -101,15 +102,15 @@ public class SPT extends Subsystem {
     //The waits a while and stops the motor at the correct angle
     //The wait amount is guess and checked.
 
-    void Stop(){
+    public void Stop(){
     	SPTShoulderMotor.set(0);
     }
 
-    float ReportAngle(){
+    public float ReportAngle(){
     	return (float) (SPT_Offset - (SPTEnc.getDistance())); //adjusted for offset
     }
 
-    void Reset(){
+    public void Reset(){
     	SPTEnc.reset();
     }
 
