@@ -36,29 +36,9 @@ public class Feeder extends Subsystem {
     }
     
     public void runOuter(int direction){
-    	
+    	outerMotor.set(feedSpeed);
     }
     
-/*    void FeedInFromField(){
-    	FeederOuterFasterMotor.set(InfeedIn);
-    }
-
-    void FeedInFromField(double MotorSpeed){
-    	FeederOuterFasterMotor.set(MotorSpeed);
-    }
-
-    void FeedOutToField(){
-    	FeederOuterFasterMotor.set(-1 * InfeedOut);
-    }
-
-    void FeedToShooter(){
-    	FeederInnerSlowerMotor.set(DeliveryGo);
-    }
-    // KJM Not sure what this is.
-    void FeedOutFromShooter(){
-    	FeederInnerSlowerMotor.set(-DeliveryGo);
-    }
-*/
 /*    void StopFeed(){
     	FeederOuterFasterMotor.set(0);
     	FeederInnerSlowerMotor.set(0);
