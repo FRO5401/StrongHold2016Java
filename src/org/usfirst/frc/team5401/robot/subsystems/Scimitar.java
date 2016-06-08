@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team5401.robot.commands.ScimitarInOut;
 
 /**
  *
@@ -69,7 +70,7 @@ public class Scimitar extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     	
     	//Currently not implemented
-//   	setDefaultCommand(new ScimitarInOut());
+   	setDefaultCommand(new ScimitarInOut());
     }
     public void Control(double LeftScimChange, double RightScimChange, boolean Override)
     {
