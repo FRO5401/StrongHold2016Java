@@ -77,23 +77,21 @@ public class OI {
 		MOHRightStickButton		= new JoystickButton(MedalOfHonorController, 12);
 		MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);
 		
-		
-		//XXX Currently ignored as I don't feel like implementing all the Feeder commands
-		//SPT Buttons
-		//Feeder Buttons //NOTE: Directions are correct, command names are not necessarily correct
-/*		MOHRightTrigger.whenPressed(new FeedOutFromOuter());
+		//Feeder Buttons; 0 = in, 1 = out
+		MOHRightTrigger.whenPressed(new FeederOuter(0));
 		MOHRightTrigger.whenReleased(new FeederStop());
 
-		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
+		MOHLeftTrigger.whenPressed(new FeederOuter(1));
 		MOHLeftTrigger.whenReleased(new FeederStop());
 
-		MOHLeftBumper.whenPressed(new FeedOutFromInner());
+		MOHLeftBumper.whenPressed(new FeederInner(1));
 		MOHLeftBumper.whenReleased(new FeederStop());
 
 //		MOHRightBumper.whenPressed(new FeedInFromInner());
 //		MOHRightBumper.whenReleased(new FeederStop());
 		
-		MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
+		//TODO Still to implement
+		//MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
 
 //		MOHButtonTriangle.whenPressed(new ScimitarInOut());
 //		MOHButtonX.whenPressed(new ScimitarPrepareToScale());
@@ -104,7 +102,7 @@ public class OI {
 
 //		MOHButtonCircle.whenPressed(new MoveSPTtoPosition(55)); //55 is Delivery
 //		MOHButtonX.whenPressed(new MoveSPTtoPosition(-21)); //-21 is Infeed
-*/		
+		
 	}	
 
 	public double ReadXboxLeftStickX()
