@@ -1,7 +1,6 @@
 package org.usfirst.frc.team5401.robot;
 
-//import edu.wpi.first.wpilibj.buttons.Button;
-//import org.usfirst.frc.team5401.robot.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team5401.robot.commands.*;
@@ -18,64 +17,36 @@ public class OI {
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
 	
-	public Joystick XboxController;
-	public Joystick MedalOfHonorController;
+	Joystick XboxController = new Joystick(1);
+	Joystick MedalOfHonorController = new Joystick(2);
 	
-	//There has to be a better way to do this and I think there is. Look at Team 1923 on GitHub
-	JoystickButton XboxA;
-	JoystickButton XboxB;
-	JoystickButton XboxX;
-	JoystickButton XboxY;
-	JoystickButton XboxUpperLeftTrig;
-	JoystickButton XboxUpperRightTrig;
-	JoystickButton XboxBack;
-	JoystickButton XboxStart;
-	JoystickButton XboxLeftStickButton;
-	JoystickButton XboxRightStickButton;
+	//Create buttons
+	Button XboxA 					= new JoystickButton(XboxController, 1);
+	Button XboxB					= new JoystickButton(XboxController, 2);
+	Button XboxX					= new JoystickButton(XboxController, 3);
+	Button XboxY					= new JoystickButton(XboxController, 4);
+	Button XboxUpperLeftTrig		= new JoystickButton(XboxController, 5);
+	Button XboxUpperRightTrig		= new JoystickButton(XboxController, 6);
+	Button XboxBack				= new JoystickButton(XboxController, 7);
+	Button XboxStart				= new JoystickButton(XboxController, 8);
+	Button XboxLeftStickButton		= new JoystickButton(XboxController, 9);
+	Button XboxRightStickButton 	= new JoystickButton(XboxController, 10);
 
-	JoystickButton MOHButtonSquare;
-	JoystickButton MOHButtonX;
-	JoystickButton MOHButtonCircle;
-	JoystickButton MOHButtonTriangle;
-	JoystickButton MOHLeftBumper;
-	JoystickButton MOHRightBumper;
-	JoystickButton MOHLeftTrigger;
-	JoystickButton MOHRightTrigger;
-	JoystickButton MOHSelectButton;
-	JoystickButton MOHStartButton;
-	JoystickButton MOHLeftStickButton;
-	JoystickButton MOHRightStickButton;
-	JoystickButton MOHHomeButton;	
+	Button MOHButtonSquare			= new JoystickButton(MedalOfHonorController, 1);
+	Button MOHButtonX				= new JoystickButton(MedalOfHonorController, 2);
+	Button MOHButtonCircle			= new JoystickButton(MedalOfHonorController, 3);
+	Button MOHButtonTriangle		= new JoystickButton(MedalOfHonorController, 4);
+	Button MOHLeftBumper			= new JoystickButton(MedalOfHonorController, 5);
+	Button MOHRightBumper			= new JoystickButton(MedalOfHonorController, 6);
+	Button MOHLeftTrigger			= new JoystickButton(MedalOfHonorController, 7);
+	Button MOHRightTrigger			= new JoystickButton(MedalOfHonorController, 8);
+	Button MOHSelectButton			= new JoystickButton(MedalOfHonorController, 9);
+	Button MOHStartButton			= new JoystickButton(MedalOfHonorController, 10);
+	Button MOHLeftStickButton		= new JoystickButton(MedalOfHonorController, 11);
+	Button MOHRightStickButton		= new JoystickButton(MedalOfHonorController, 12);
+	Button MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);	
 	
 	public OI(){
-		XboxController = new Joystick(1);
-		MedalOfHonorController = new Joystick(2);
-		
-		//Create buttons
-		XboxA 					= new JoystickButton(XboxController, 1);
-		XboxB					= new JoystickButton(XboxController, 2);
-		XboxX					= new JoystickButton(XboxController, 3);
-		XboxY					= new JoystickButton(XboxController, 4);
-		XboxUpperLeftTrig		= new JoystickButton(XboxController, 5);
-		XboxUpperRightTrig		= new JoystickButton(XboxController, 6);
-		XboxBack				= new JoystickButton(XboxController, 7);
-		XboxStart				= new JoystickButton(XboxController, 8);
-		XboxLeftStickButton		= new JoystickButton(XboxController, 9);
-		XboxRightStickButton 	= new JoystickButton(XboxController, 10);
-	
-		MOHButtonSquare			= new JoystickButton(MedalOfHonorController, 1);
-		MOHButtonX				= new JoystickButton(MedalOfHonorController, 2);
-		MOHButtonCircle			= new JoystickButton(MedalOfHonorController, 3);
-		MOHButtonTriangle		= new JoystickButton(MedalOfHonorController, 4);
-		MOHLeftBumper			= new JoystickButton(MedalOfHonorController, 5);
-		MOHRightBumper			= new JoystickButton(MedalOfHonorController, 6);
-		MOHLeftTrigger			= new JoystickButton(MedalOfHonorController, 7);
-		MOHRightTrigger			= new JoystickButton(MedalOfHonorController, 8);
-		MOHSelectButton			= new JoystickButton(MedalOfHonorController, 9);
-		MOHStartButton			= new JoystickButton(MedalOfHonorController, 10);
-		MOHLeftStickButton		= new JoystickButton(MedalOfHonorController, 11);
-		MOHRightStickButton		= new JoystickButton(MedalOfHonorController, 12);
-		MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);
 		
 		//Feeder Buttons; 0 = in, 1 = out
 		MOHRightTrigger.whenPressed(new FeederOuter(0));
