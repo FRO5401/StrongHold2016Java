@@ -96,8 +96,8 @@ public class RobotMap {
 	public static final int SPTShoulderMotor_Channel			= 5;//Current as of 021616 //5
 
 	//Feeder Motors the outer and inner one
-	public static final int FeederOuterFasterMotor_Channel	= 6;//Current as of 021616
-	public static final int FeederInnerSlower_Channel			= 7;//Current as of 021616
+	public static final int feederOuterMotor_Channel	= 6;//Current as of 021616
+	public static final int feederInnerMotor_Channel			= 7;//Current as of 021616
 
 	public static final int HookShoulderMotor_Channel			= 9;
 

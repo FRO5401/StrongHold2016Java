@@ -11,21 +11,16 @@ import org.usfirst.frc.team5401.robot.RobotMap;
  */
 public class Feeder extends Subsystem {
 	
-	Victor FeederOuterFasterMotor;
-	Victor FeederInnerSlowerMotor;
+	Victor outerMotor;
+	Victor innerMotor;
 	
-//XXX Should be initialized in the constructor but I'm lazy	
-	final double InfeedIn;
-	final double InfeedOut;
-	final double DeliveryGo;
+	final double feedSpeed;
     
 	public Feeder(){
-		FeederOuterFasterMotor = new Victor(RobotMap.FeederOuterFasterMotor_Channel);
-		FeederInnerSlowerMotor = new Victor(RobotMap.FeederInnerSlower_Channel);
+		outerMotor = new Victor(RobotMap.feederOuterMotor_Channel);
+		innerMotor = new Victor(RobotMap.feederInnerMotor_Channel);
 		
-		InfeedIn	= 0.95; //Set max speed for infeed motors
-		InfeedOut	= 0.9; //Set max speed for infeed motor kick
-		DeliveryGo	= 0.75; //Set max speed for Delivery motors
+		feedSpeed = .95;
 	}
 	
     // Put methods for controlling this subsystem
@@ -36,7 +31,15 @@ public class Feeder extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    void FeedInFromField(){
+    public void runInner(int direction){
+    	innerMotor.set(feedSpeed);
+    }
+    
+    public void runOuter(int direction){
+    	
+    }
+    
+/*    void FeedInFromField(){
     	FeederOuterFasterMotor.set(InfeedIn);
     }
 
@@ -55,15 +58,15 @@ public class Feeder extends Subsystem {
     void FeedOutFromShooter(){
     	FeederInnerSlowerMotor.set(-DeliveryGo);
     }
-
-    void StopFeed(){
+*/
+/*    void StopFeed(){
     	FeederOuterFasterMotor.set(0);
     	FeederInnerSlowerMotor.set(0);
-    }
+    } */
 
-    void FeedOutToGoal(){
+/*    void FeedOutToGoal(){
     	FeedInFromField(1);
     	FeedOutFromShooter();
-    }
+    } */
 }
 
