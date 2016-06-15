@@ -1,6 +1,9 @@
 package org.usfirst.frc.team5401.robot.commands;
 
+import org.usfirst.frc.team5401.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
+
 
 /**
  *
@@ -10,7 +13,7 @@ public class SPTMove extends Command {
     public SPTMove() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(spt);
+    	requires(Robot.spt);
     }
 
     // Called just before this Command runs the first time

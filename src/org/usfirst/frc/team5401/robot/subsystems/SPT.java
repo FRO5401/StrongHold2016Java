@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
+import org.usfirst.frc.team5401.robot.commands.SPTMove;
 
 /**
  *
@@ -45,7 +46,7 @@ public class SPT extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new SPTMove);
+    	setDefaultCommand(new SPTMove());
     }
     
   //This function sets the shoulder motor of SPT to a certain direction between up and down

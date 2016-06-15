@@ -21,7 +21,7 @@ public class Robot extends IterativeRobot {
 	
 	//XXX This area is basically your CommandBase::init() from C++
 	public static final DriveBase drivebase = new DriveBase();
-	public static SPT spt = SPT();
+	public static SPT spt = new SPT();
 	public static OI oi;
 
     Command autonomousCommand;
