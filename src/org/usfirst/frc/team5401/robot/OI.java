@@ -17,8 +17,8 @@ public class OI {
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
 	
-	Joystick XboxController = new Joystick(1);
-	Joystick MedalOfHonorController = new Joystick(2);
+	Joystick XboxController;
+	Joystick MedalOfHonorController;
 	
 	//Create buttons
 	Button XboxA 					= new JoystickButton(XboxController, 1);
@@ -47,17 +47,18 @@ public class OI {
 	Button MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);	
 	
 	public OI(){
-		
+		XboxController = new Joystick(1);
+		MedalOfHonorController = new Joystick(2);
 		//Feeder Buttons; 0 = in, 1 = out
-		MOHRightTrigger.whenPressed(new FeederOuter(0));
+//		MOHRightTrigger.whenPressed(new FeederOuter(0));
 		MOHRightTrigger.whenReleased(new FeederStop());
 
-		MOHLeftTrigger.whenPressed(new FeederOuter(1));
-		MOHLeftTrigger.whenReleased(new FeederStop());
+//		MOHLeftTrigger.whenPressed(new FeederOuter(1));
+//		MOHLeftTrigger.whenReleased(new FeederStop());
 
-		MOHLeftBumper.whenPressed(new FeederInner(1));
-		MOHLeftBumper.whenReleased(new FeederStop());
-
+//		MOHLeftBumper.whenPressed(new FeederInner(1));
+//		MOHLeftBumper.whenReleased(new FeederStop());
+        
 //		MOHRightBumper.whenPressed(new FeedInFromInner());
 //		MOHRightBumper.whenReleased(new FeederStop());
 		
