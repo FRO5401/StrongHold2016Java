@@ -3,7 +3,7 @@ package org.usfirst.frc.team5401.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.usfirst.frc.team5401.robot.commands.*;
+//import org.usfirst.frc.team5401.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -49,8 +49,8 @@ public class OI {
 	public OI(){
 		
 		//Feeder Buttons; 0 = in, 1 = out
-		MOHRightTrigger.whenPressed(new OuterFeeder(0));
-		MOHRightTrigger.whenReleased(new StopFeeder());
+//		MOHRightTrigger.whenPressed(new OuterFeeder(0));
+//		MOHRightTrigger.whenReleased(new StopFeeder());
 
 //		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
 //		MOHLeftTrigger.whenReleased(new FeederStop());
