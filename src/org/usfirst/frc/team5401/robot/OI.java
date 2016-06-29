@@ -48,23 +48,20 @@ public class OI {
 	
 	public OI(){
 		
-		
-		//XXX Currently ignored as I don't feel like implementing all the Feeder commands
-		//SPT Buttons
-		//Feeder Buttons //NOTE: Directions are correct, command names are not necessarily correct
-/*		MOHRightTrigger.whenPressed(new FeedOutFromOuter());
-		MOHRightTrigger.whenReleased(new FeederStop());
+		//Feeder Buttons; 0 = in, 1 = out
+//		MOHRightTrigger.whenPressed(new OuterFeeder(0));
+//		MOHRightTrigger.whenReleased(new StopFeeder());
 
-		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
-		MOHLeftTrigger.whenReleased(new FeederStop());
+//		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
+//		MOHLeftTrigger.whenReleased(new FeederStop());
 
-		MOHLeftBumper.whenPressed(new FeedOutFromInner());
-		MOHLeftBumper.whenReleased(new FeederStop());
+//		MOHLeftBumper.whenPressed(new FeedOutFromInner());
+//		MOHLeftBumper.whenReleased(new FeederStop());
 
 //		MOHRightBumper.whenPressed(new FeedInFromInner());
 //		MOHRightBumper.whenReleased(new FeederStop());
 		
-		MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
+//		MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
 
 //		MOHButtonTriangle.whenPressed(new ScimitarInOut());
 //		MOHButtonX.whenPressed(new ScimitarPrepareToScale());
@@ -75,7 +72,7 @@ public class OI {
 
 //		MOHButtonCircle.whenPressed(new MoveSPTtoPosition(55)); //55 is Delivery
 //		MOHButtonX.whenPressed(new MoveSPTtoPosition(-21)); //-21 is Infeed
-*/		
+		
 	}	
 
 	public double ReadXboxLeftStickX()
