@@ -30,7 +30,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
     Command autonomousCommand;
-//    LiveWindow lw;
+    LiveWindow lw;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -46,12 +46,14 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
 		//XXX IGNORING AUTONOMOUS FOR NOW
 		//autonomousCommand = new ExampleCommand();
-		CameraServer.getInstance().setQuality(50);
-		CameraServer.getInstance().startAutomaticCapture();
+
     }
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		CameraServer lifeCam = CameraServer.getInstance();
+		lifeCam.setQuality(50);
+		lifeCam.startAutomaticCapture("cam0");
 	}
 
     public void autonomousInit() {
