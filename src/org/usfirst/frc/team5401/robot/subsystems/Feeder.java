@@ -39,10 +39,10 @@ public class Feeder extends Subsystem {
     	outerMotor.set(feedSpeed);
     }
     
-    public void stopFeed(){
-    	innerMotor.set(0);
-    	outerMotor.set(0);
-    } 
+/*    void StopFeed(){
+    	FeederOuterFasterMotor.set(0);
+    	FeederInnerSlowerMotor.set(0);
+    } */
 
 /*    void FeedOutToGoal(){
     	FeedInFromField(1);

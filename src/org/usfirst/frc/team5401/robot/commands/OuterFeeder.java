@@ -1,22 +1,24 @@
 package org.usfirst.frc.team5401.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.usfirst.frc.team5401.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class FeederStop extends Command {
-
-    public FeederStop() {
+public class OuterFeeder extends Command {
+	private int inOrOut; //0 = in, 1 = out
+	
+    public OuterFeeder(int direction) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.feeder);
+        inOrOut = direction;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.feeder.stopFeed();
+    	Robot.feeder.runOuter(inOrOut);
     }
 
     // Called repeatedly when this Command is scheduled to run
