@@ -17,25 +17,25 @@ public class OuterFeeder extends Command {
     }
 
     // Called just before this Command runs the first time
-    public void initialize() {
-    	Robot.feeder.runOuter(inOrOut);
+    protected void initialize() {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    public void execute() {
+    protected void execute() {
+    	Robot.feeder.runOuter(inOrOut);
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    public boolean isFinished() {
+    protected boolean isFinished() {
         return true;
     }
 
     // Called once after isFinished returns true
-    public void end() {
+    protected void end() {
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
-    public void interrupted() {
+    protected void interrupted() {
     }
 }

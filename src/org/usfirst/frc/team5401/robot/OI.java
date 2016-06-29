@@ -3,7 +3,7 @@ package org.usfirst.frc.team5401.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-//import org.usfirst.frc.team5401.robot.commands.*;
+import org.usfirst.frc.team5401.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -27,7 +27,7 @@ public class OI {
 	Button XboxY					= new JoystickButton(XboxController, 4);
 	Button XboxUpperLeftTrig		= new JoystickButton(XboxController, 5);
 	Button XboxUpperRightTrig		= new JoystickButton(XboxController, 6);
-	Button XboxBack				= new JoystickButton(XboxController, 7);
+	Button XboxBack					= new JoystickButton(XboxController, 7);
 	Button XboxStart				= new JoystickButton(XboxController, 8);
 	Button XboxLeftStickButton		= new JoystickButton(XboxController, 9);
 	Button XboxRightStickButton 	= new JoystickButton(XboxController, 10);
@@ -44,13 +44,16 @@ public class OI {
 	Button MOHStartButton			= new JoystickButton(MedalOfHonorController, 10);
 	Button MOHLeftStickButton		= new JoystickButton(MedalOfHonorController, 11);
 	Button MOHRightStickButton		= new JoystickButton(MedalOfHonorController, 12);
-	Button MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);	
+	Button MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);
+	
+	MOHRightTrigger.whenPressed(new OuterFeeder(0));
+	MOHRightTrigger.whenReleased(new StopFeeder());
 	
 	public OI(){
 		
 		//Feeder Buttons; 0 = in, 1 = out
-//		MOHRightTrigger.whenPressed(new OuterFeeder(0));
-//		MOHRightTrigger.whenReleased(new StopFeeder());
+		MOHRightTrigger.whenPressed(new OuterFeeder(0));
+		MOHRightTrigger.whenReleased(new StopFeeder());
 
 //		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
 //		MOHLeftTrigger.whenReleased(new FeederStop());
