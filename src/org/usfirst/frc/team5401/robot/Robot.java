@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 //import org.usfirst.frc.team5401.robot.commands.XboxMove;
 //It is best to simply import all subsystems as all should be used here anyway
 import org.usfirst.frc.team5401.robot.subsystems.*;
+import edu.wpi.first.wpilibj.CameraServer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 
     Command autonomousCommand;
+    LiveWindow lw;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -43,6 +45,8 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
 		//XXX IGNORING AUTONOMOUS FOR NOW
 		//autonomousCommand = new ExampleCommand();
+		CameraServer.getInstance().setQuality(50);
+		CameraServer.getInstance().startAutomaticCapture("cam0");
     }
 	
 	public void disabledPeriodic() {
