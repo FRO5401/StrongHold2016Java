@@ -46,14 +46,11 @@ public class OI {
 	Button MOHRightStickButton		= new JoystickButton(MedalOfHonorController, 12);
 	Button MOHHomeButton			= new JoystickButton(MedalOfHonorController, 13);
 	
-	MOHRightTrigger.whenPressed(new OuterFeeder(0));
-	MOHRightTrigger.whenReleased(new StopFeeder());
-	
 	public OI(){
 		
 		//Feeder Buttons; 0 = in, 1 = out
-		MOHRightTrigger.whenPressed(new OuterFeeder(0));
-		MOHRightTrigger.whenReleased(new StopFeeder());
+//		MOHRightTrigger.whenPressed(new OuterFeeder(0));
+//		MOHRightTrigger.whenReleased(new StopFeeder());
 
 //		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
 //		MOHLeftTrigger.whenReleased(new FeederStop());
