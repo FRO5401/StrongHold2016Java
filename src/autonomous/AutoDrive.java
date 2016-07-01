@@ -1,8 +1,9 @@
 package autonomous;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc.team5401.robot.Robot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team5401.robot.Robot;
 
 
 /**
@@ -18,7 +19,7 @@ public class AutoDrive extends Command {
 	private double drift;
 	private double kP_Drift;
 	
-	private final double AutoDistThresh = 2;
+	private final double AutoDistThresh;
 	
     public AutoDrive(double DistanceInput, double SpeedInput) {
         // Use requires() here to declare subsystem dependencies
@@ -31,6 +32,9 @@ public class AutoDrive extends Command {
     	heading = Robot.drivebase.ReportGyro();
     	drift = 0;
     	kP_Drift = .1;
+    	
+    	//Final Variables
+    	AutoDistThresh = 2;
     }
 
     // Called just before this Command runs the first time
