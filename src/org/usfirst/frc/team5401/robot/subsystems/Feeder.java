@@ -31,6 +31,7 @@ public class Feeder extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    //0 = in, 1 = out
     public void runInner(int direction){
     	innerMotor.set(feedSpeed);
     }
@@ -43,10 +44,11 @@ public class Feeder extends Subsystem {
     	innerMotor.set(0);
     	outerMotor.set(0);
     } 
-
-/*    void FeedOutToGoal(){
-    	FeedInFromField(1);
-    	FeedOutFromShooter();
-    } */
+    
+    //0 = in, 1 = out
+    public void feedOut(){
+    	runInner(0);
+    	runOuter(0);
+    } 
 }
 
