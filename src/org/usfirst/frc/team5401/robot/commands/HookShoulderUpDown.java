@@ -16,13 +16,13 @@ public class HookShoulderUpDown extends Command {
 	private double HookShoulderMove;
 	private boolean Precision;
 	
-	final double HookShoulderUpSpeed;
-	final double HookShoulderDownSpeed;
-	final double HookMaxPosition;
-	final double HookMinPosition;
-	final double HookStartPosition;
-	final double StickAxisThreshold;
-	final double HookPrecision;
+	private final double HookShoulderUpSpeed;
+	private final double HookShoulderDownSpeed;
+	private final double HookMaxPosition;
+	private final double HookMinPosition;
+	private final double HookStartPosition;
+	private final double StickAxisThreshold;
+	private final double HookPrecision;
 
 	
     public HookShoulderUpDown() {

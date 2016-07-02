@@ -26,6 +26,10 @@ public class Robot extends IterativeRobot {
 	public static Scimitar scimitar;
 	public static SPT spt;
 	public static OI oi;
+	//Something I'm thinking of adding
+		//putting this here gets rid of the need to import RobotMap when needed
+		//Considering this is Java and memory could be an issue, probably not a good idea :)
+	//public static OI RobotMap;
 
     Command autonomousCommand;
 

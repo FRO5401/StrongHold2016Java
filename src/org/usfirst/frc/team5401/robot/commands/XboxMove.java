@@ -15,8 +15,8 @@ public class XboxMove extends Command {
 	private float kP_Drift;
 
 	//should be in constructor but i'm lazy
-	private static final double Thresh		=	0.1; //Set Dead Zone threshold for thumbstick so small movements don't mess things up
-	private static final double SpinSensitivity	= .5;
+	private final double Thresh		=	0.1; //Set Dead Zone threshold for thumbstick so small movements don't mess things up
+	private final double SpinSensitivity	= .5;
 	
     public XboxMove() {
         // Use requires() here to declare subsystem dependencies
