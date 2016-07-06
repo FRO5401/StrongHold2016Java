@@ -4,11 +4,15 @@ package org.usfirst.frc.team5401.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-//XXX Unsure why this is needed here, possibly for autonomous
-//import org.usfirst.frc.team5401.robot.commands.XboxMove;
-//It is best to simply import all subsystems as all should be used here anyway
 import org.usfirst.frc.team5401.robot.subsystems.*;
+
+import autonomous.*;
+//import org.usfirst.frc.team5401.robot.Defense;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,7 +34,8 @@ public class Robot extends IterativeRobot {
 		//putting this here gets rid of the need to import RobotMap when needed
 		//Considering this is Java and memory could be an issue, probably not a good idea :)
 	//public static OI RobotMap;
-
+	private static SendableChooser autoChooser;
+	
     Command autonomousCommand;
 
     /**
@@ -44,9 +49,15 @@ public class Robot extends IterativeRobot {
 		feeder = new Feeder();
 		scimitar = new Scimitar();
 		spt = new SPT();
-        // instantiate the command used for the autonomous period
-		//XXX IGNORING AUTONOMOUS FOR NOW
-		//autonomousCommand = new ExampleCommand();
+		
+		autoChooser = new SendableChooser();
+        autoChooser.addDefault("Do Nothing", new DoNothing());
+        autoChooser.addObject("RockWall (currently only drives forward)", new RockWall());
+        
+        SmartDashboard.putData("Auto Defense", autoChooser);
+        
+        //Try this later
+        //SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
     }
 	
 	public void disabledPeriodic() {
@@ -55,6 +66,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	autonomousCommand = (Command)autoChooser.getSelected();
         if (autonomousCommand != null) autonomousCommand.start();
     }
 

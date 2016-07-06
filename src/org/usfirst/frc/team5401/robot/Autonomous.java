@@ -1,21 +1,13 @@
-package autonomous;
+package org.usfirst.frc.team5401.robot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import autonomous.AutoHookScimitarOnBumper;
-import autonomous.AutoDrive;
 
 /**
  *
  */
-public class RockWall extends CommandGroup {
-	
-	private final double RockWallAutoDriveSpeed;
-	
-    public  RockWall() {
-    	RockWallAutoDriveSpeed =.85;
-    	
-    	//addSequential(new AutoHookScimitarOnBumper());
-    	addSequential(new AutoDrive(-200, RockWallAutoDriveSpeed));
+public class Autonomous extends CommandGroup {
+    
+    public  Autonomous() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
