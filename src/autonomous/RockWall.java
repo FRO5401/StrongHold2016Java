@@ -1,8 +1,6 @@
 package autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
-import autonomous.AutoHookScimitarOnBumper;
-import autonomous.AutoDrive;
 
 /**
  *

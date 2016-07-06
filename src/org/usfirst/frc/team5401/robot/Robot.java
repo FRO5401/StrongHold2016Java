@@ -52,8 +52,14 @@ public class Robot extends IterativeRobot {
 		
 		autoChooser = new SendableChooser();
         autoChooser.addDefault("Do Nothing", new DoNothing());
-        autoChooser.addObject("RockWall", new RockWall());
-        autoChooser.addObject("Deliver Ball", new AutoDeliverBall(3.0));
+        autoChooser.addObject("Reach Defense", new Reach());
+        autoChooser.addObject("Rock Wall (Hook Forwards)", new RockWall());
+        autoChooser.addObject("RockWall & Turn (Hook Forwards)", new RockWallAndTurn());
+        autoChooser.addObject("Rough Terrain (Hook Forwards)", new RoughTerrain());
+        autoChooser.addObject("Low Bar & SCORE (SPT Forwards)", new LowBar());
+        autoChooser.addObject("Low Bar CROSS ONLY (SPT Forwards)", new LowBarNoScore());
+        autoChooser.addObject("Portcullis (SPT Forwards)", new Portcullis());
+        autoChooser.addObject("Deliver Ball (exists to test feeder)", new AutoDeliverBall(3.0));
         
         SmartDashboard.putData("Auto Defense", autoChooser);
         
