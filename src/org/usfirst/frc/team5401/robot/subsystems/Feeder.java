@@ -20,7 +20,7 @@ public class Feeder extends Subsystem {
 		outerMotor = new Victor(RobotMap.feederOuterMotor_Channel);
 		innerMotor = new Victor(RobotMap.feederInnerMotor_Channel);
 		
-		feedSpeed = .95;
+		feedSpeed = .5; //was .95
 	}
 	
     // Put methods for controlling this subsystem

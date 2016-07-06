@@ -52,7 +52,8 @@ public class Robot extends IterativeRobot {
 		
 		autoChooser = new SendableChooser();
         autoChooser.addDefault("Do Nothing", new DoNothing());
-        autoChooser.addObject("RockWall (currently only drives forward)", new RockWall());
+        autoChooser.addObject("RockWall", new RockWall());
+        autoChooser.addObject("Deliver Ball", new AutoDeliverBall(3.0));
         
         SmartDashboard.putData("Auto Defense", autoChooser);
         

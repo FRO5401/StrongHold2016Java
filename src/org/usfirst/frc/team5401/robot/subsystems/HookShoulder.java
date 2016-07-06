@@ -32,7 +32,7 @@ public class HookShoulder extends Subsystem {
 		//Multiplier to get meaningful value. A number can be put here
 		HookShoulder_Range 	= 1600;
 		//Quote "offset added to the scaled value to control the 0 value"
-		HookShoulder_Offset = -904; //Horizontal is 0
+		HookShoulder_Offset = -937; //Horizontal is 0
 
 		HookShoulderMotorMin = -1; //Min Motor speed
 		HookShoulderMotorMax = 0.9; // Max motor speed

@@ -14,7 +14,7 @@ public class RockWall extends CommandGroup {
     public  RockWall() {
     	RockWallAutoDriveSpeed =.85;
     	
-    	//addSequential(new AutoHookScimitarOnBumper());
+    	addSequential(new AutoHookScimitarOnBumper());
     	addSequential(new AutoDrive(-200, RockWallAutoDriveSpeed));
         // Add Commands here:
         // e.g. addSequential(new Command1());
