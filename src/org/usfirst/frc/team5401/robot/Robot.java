@@ -59,7 +59,7 @@ public class Robot extends IterativeRobot {
         autoChooser.addObject("Low Bar & SCORE (SPT Forwards)", new LowBar());
         autoChooser.addObject("Low Bar CROSS ONLY (SPT Forwards)", new LowBarNoScore());
         autoChooser.addObject("Portcullis (SPT Forwards)", new Portcullis());
-        autoChooser.addObject("Deliver Ball (exists to test feeder)", new AutoDeliverBall(3.0));
+        autoChooser.addObject("Hook Scimitar on Bumper", new AutoHookScimitarOnBumper());
         
         SmartDashboard.putData("Auto Defense", autoChooser);
         
