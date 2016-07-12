@@ -44,7 +44,6 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	drivebase = new DriveBase();
-		oi = new OI();
 		hookshoulder = new HookShoulder();
 		feeder = new Feeder();
 		scimitar = new Scimitar();
@@ -65,6 +64,8 @@ public class Robot extends IterativeRobot {
         
         //Try this later
         //SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
+        
+        oi = new OI(); //Initialize OI ***AFTER*** all other subsystems
     }
 	
 	public void disabledPeriodic() {
