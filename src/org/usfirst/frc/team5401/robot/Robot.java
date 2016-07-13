@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 //import org.usfirst.frc.team5401.robot.commands.XboxMove;
 //It is best to simply import all subsystems as all should be used here anyway
 import org.usfirst.frc.team5401.robot.subsystems.*;
-import org.opencv.core.Core;
+//import org.opencv.core.Core;
 
 
 /**
@@ -40,12 +40,13 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	drivebase = new DriveBase();
-		oi = new OI();
+		
 		hookshoulder = new HookShoulder();
 		feeder = new Feeder();
 		scimitar = new Scimitar();
 		spt = new SPT();
-        // instantiate the command used for the autonomous period
+        oi = new OI();
+		// instantiate the command used for the autonomous period
 		//XXX IGNORING AUTONOMOUS FOR NOW
 		//autonomousCommand = new ExampleCommand();
 		MicrosoftLifeCam = CameraServer.getInstance();
