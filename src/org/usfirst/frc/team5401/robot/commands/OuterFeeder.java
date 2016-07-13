@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class OuterFeeder extends Command {
-	private int inOrOut; //0 = in, 1 = out
+	private int inOrOut; //1 = in, -1 = out
 	
     public OuterFeeder(int direction) {
         // Use requires() here to declare subsystem dependencies

@@ -48,31 +48,17 @@ public class OI {
 	
 	public OI(){
 		
-		//Feeder Buttons; 0 = in, 1 = out
-//		MOHRightTrigger.whenPressed(new OuterFeeder(0));
-//		MOHRightTrigger.whenReleased(new StopFeeder());
+		//Feeder Buttons; 1 = in, -1 = out
+		MOHRightTrigger.whenPressed(new OuterFeeder(1));
+		MOHRightTrigger.whenReleased(new StopFeeder());
 
-//		MOHLeftTrigger.whenPressed(new FeedInFromOuter());
-//		MOHLeftTrigger.whenReleased(new FeederStop());
+		MOHLeftTrigger.whenPressed(new OuterFeeder(-1));
+		MOHLeftTrigger.whenReleased(new StopFeeder());
 
-//		MOHLeftBumper.whenPressed(new FeedOutFromInner());
-//		MOHLeftBumper.whenReleased(new FeederStop());
-
-//		MOHRightBumper.whenPressed(new FeedInFromInner());
-//		MOHRightBumper.whenReleased(new FeederStop());
+		MOHLeftBumper.whenPressed(new InnerFeeder(-1));
+		MOHLeftBumper.whenReleased(new StopFeeder());
 		
 //		MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
-
-//		MOHButtonTriangle.whenPressed(new ScimitarInOut());
-//		MOHButtonX.whenPressed(new ScimitarPrepareToScale());
-
-
-//		MOHStartButton.whenPressed(new AutoDeliverBall(1.5)); //Commented out, using button to auto drive
-
-
-//		MOHButtonCircle.whenPressed(new MoveSPTtoPosition(55)); //55 is Delivery
-//		MOHButtonX.whenPressed(new MoveSPTtoPosition(-21)); //-21 is Infeed
-		
 	}	
 
 	public double ReadXboxLeftStickX()

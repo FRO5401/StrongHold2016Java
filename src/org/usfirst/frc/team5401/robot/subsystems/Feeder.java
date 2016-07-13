@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Victor;
 import org.usfirst.frc.team5401.robot.RobotMap;
 
 /**
- *
+ *  Direction: 1 = in, -1 = out
  */
 public class Feeder extends Subsystem {
 	
@@ -33,11 +33,11 @@ public class Feeder extends Subsystem {
     
     //0 = in, 1 = out
     public void runInner(int direction){
-    	innerMotor.set(feedSpeed);
+    	innerMotor.set(feedSpeed * direction);
     }
     
     public void runOuter(int direction){
-    	outerMotor.set(feedSpeed);
+    	outerMotor.set(feedSpeed * direction);
     }
     
     public void stopFeed(){

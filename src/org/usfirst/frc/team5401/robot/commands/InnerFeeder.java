@@ -7,7 +7,7 @@ import org.usfirst.frc.team5401.robot.Robot;
  *
  */
 public class InnerFeeder extends Command {
-	private int inOrOut; //0 = in, 1 = out
+	private int inOrOut; //1 = in, -1 = out
 	
     public InnerFeeder(int direction) {
         // Use requires() here to declare subsystem dependencies
