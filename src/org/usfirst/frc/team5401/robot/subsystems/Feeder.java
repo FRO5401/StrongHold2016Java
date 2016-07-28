@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 /**
  *  Direction: 1 = in, -1 = out
@@ -31,12 +33,12 @@ public class Feeder extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    //0 = in, 1 = out
+    //1 = in, -1 = out
     public void runInner(int direction){
     	innerMotor.set(feedSpeed * direction);
     }
     
-    public void runOuter(int direction){
+    public void runOuter(int direction){   	
     	outerMotor.set(feedSpeed * direction);
     }
     

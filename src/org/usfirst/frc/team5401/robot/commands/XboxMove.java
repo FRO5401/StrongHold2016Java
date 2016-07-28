@@ -24,8 +24,6 @@ public class XboxMove extends Command {
         drift = 0;
     	heading = Robot.drivebase.ReportGyro();
     	kP_Drift = 0; //TODO Redetermine this number
-    	SmartDashboard.putNumber("Drift kP", kP_Drift);
-    	SmartDashboard.putNumber("Teleop heading", heading);
     }
 
     // Called just before this Command runs the first time
@@ -51,8 +49,6 @@ public class XboxMove extends Command {
     		Throttle = Reverse;
     		Reverse = temp;
     	}
-
-    	SmartDashboard.getNumber("Drift kP", kP_Drift);
 
     	if (Precision) { //Sets drive precision based on RobotMap and Precision Mode
     		Sensitivity	=	RobotMap.Drive_Sensitivity_Precise;

@@ -69,11 +69,6 @@ public class DriveBase extends Subsystem {
 	 	kP_Left = .835;
 	 	DPPRight = (1/6.318);
 	 	DPPLeft = (-1/6.318);
-	 	SmartDashboard.putNumber("kP Backwards Value", kP_Right);
-	 	SmartDashboard.putNumber("kP Forwards Value", kP_Left);
-	 	SmartDashboard.putNumber("DPPRight", DPPRight);
-	 	SmartDashboard.putNumber("DPPLeft", DPPLeft);
-
 	}
 	
 	//could also be public
@@ -104,12 +99,11 @@ public class DriveBase extends Subsystem {
     SmartDashboard.putNumber("Left Encoder Raw Count Value", 	LeftEnc.get());
     SmartDashboard.putNumber("Right Encoder Raw Count Value", 	RightEnc.get());
     SmartDashboard.putNumber("Left Encoder Distance Traveled", 	LeftEnc.getDistance());
-    SmartDashboard.putNumber("Right Encoder Distance Traveled", 	RightEnc.getDistance());
+    SmartDashboard.putNumber("Right Encoder Distance Traveled", RightEnc.getDistance());
 
 //    SmartDashboard.getNumber("Initial Gyro Value", initialGyro);
 //    SmartDashboard.putNumber("Gyro Angle", ReportGyro());	//doesn't work for some reason
-    SmartDashboard.putNumber("Gyro getAngle", MainGyro .getAngle());
-    SmartDashboard.putNumber("Gyro ReportGyro", ReportGyro());
+    SmartDashboard.putNumber("Gyro ReportGyro", ReportGyro());;
     }
 
   public void Stop()

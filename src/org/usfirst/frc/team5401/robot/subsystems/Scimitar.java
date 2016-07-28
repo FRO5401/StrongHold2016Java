@@ -40,8 +40,8 @@ public class Scimitar extends Subsystem {
 		ScimitarLeftEnc			= new Encoder(RobotMap.Left_Enc_Scimitar_A, RobotMap.Left_Enc_Scimitar_B, true, Encoder.EncodingType.k1X);
 		ScimitarRightEnc		= new Encoder(RobotMap.Right_Enc_Scimitar_A, RobotMap.Right_Enc_Scimitar_B, true, Encoder.EncodingType.k1X);
 
-		SmartDashboard.putNumber("ScimitarLeftEnc Distance", 0);
-		SmartDashboard.putNumber("ScimitarRightEnc Distance", 0);
+		SmartDashboard.putNumber("SCIM LeftEnc Dist", 0);
+		SmartDashboard.putNumber("SCIM LeftEnc Dist", 0);
 		SmartDashboard.putNumber("SCIM LeftEnc Raw", 0);
 		SmartDashboard.putNumber("SCIM RightEnc Raw", 0);
 		SmartDashboard.putBoolean("Scim R Far Limit", false);
@@ -74,9 +74,6 @@ public class Scimitar extends Subsystem {
     }
     public void Control(double LeftScimChange, double RightScimChange, boolean Override)
     {
-    	SmartDashboard.putNumber("ScimitarLeftEnc Distance", ReportLeftPosition());
-    	SmartDashboard.putNumber("ScimitarRightEnc Distance", ReportRightPosition());
-
     	//Limit switch stops are in here to prevent
     	//Zero out the change if extension is at its upper limit and trying to increase
     	SmartDashboard.putNumber("Scim L Input", LeftScimChange);
@@ -93,7 +90,6 @@ public class Scimitar extends Subsystem {
 //XXX		Yet to be tested
 //    		System.out.println("Scimitar Close Switch Tripped");
     	}
-    	SmartDashboard.putNumber("Scim L Input - Adj", LeftScimChange);
     	LeftScimitarExtender.set(LeftScimChange * ScimPrecision);
     	RightScimitarExtender.set(RightScimChange* ScimPrecision);
 

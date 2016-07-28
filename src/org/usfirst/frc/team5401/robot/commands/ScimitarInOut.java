@@ -59,8 +59,8 @@ public class ScimitarInOut extends Command {
     	LeftCloseLimit_Cmd = false;
     	SlowScimitar = false;
     	
-    	SmartDashboard.putNumber("Left motor adjusted- Cmd", Left);
-    	SmartDashboard.putNumber("Left motor limited - Cmd", Left);
+    	SmartDashboard.putNumber("Left Scim Adjusted", Left);
+    	SmartDashboard.putNumber("Left Scim Adjusted w/ Override", Left);
     	SmartDashboard.putBoolean("Extend Override", Override);
     	Robot.scimitar.ResetEncoders();
     }
@@ -103,7 +103,7 @@ public class ScimitarInOut extends Command {
     			Right = K * Right;
     		}
     	}
-    	SmartDashboard.putNumber("Left motor adjusted- Cmd", Left);
+    	SmartDashboard.putNumber("Left Scim Adjusted", Left);
     	//Zero out the change if extension is at 15 inch frame perimeter setpoint
     	if (!Override){
     		if (((RightEncoderDist >= Setpoint15Inch_Right) || (LeftEncoderDist >= Setpoint15Inch_Left)) && ((Left < 0) || (Right < 0))){ //Enc are not beyond limit and we are extending
@@ -114,7 +114,7 @@ public class ScimitarInOut extends Command {
     	} else {
     		System.out.println("Soft Stop Overridden");
     	}
-    	SmartDashboard.putNumber("Left motor limited - Cmd", Left);
+    	SmartDashboard.putNumber("Left Scim Adjusted w/ Override", Left);
     	SmartDashboard.putBoolean("Extend Override", Override);
 
     	//Slow down the change if extension is near maximum

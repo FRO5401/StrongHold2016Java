@@ -49,10 +49,10 @@ public class OI {
 	public OI(){
 		
 		//Feeder Buttons; 1 = in, -1 = out
-		MOHRightTrigger.whenPressed(new OuterFeeder(1));
+		MOHRightTrigger.whenPressed(new OuterFeeder(-1));
 		MOHRightTrigger.whenReleased(new StopFeeder());
 
-		MOHLeftTrigger.whenPressed(new OuterFeeder(-1));
+		MOHLeftTrigger.whenPressed(new OuterFeeder(1));
 		MOHLeftTrigger.whenReleased(new StopFeeder());
 
 		MOHLeftBumper.whenPressed(new InnerFeeder(-1));

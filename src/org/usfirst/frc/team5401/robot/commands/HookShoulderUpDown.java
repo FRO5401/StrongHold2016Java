@@ -40,6 +40,10 @@ public class HookShoulderUpDown extends Command {
     	Override = false;
     	CurrentPosition = 0;
     	HookShoulderMove = 0;
+    	
+    	//Returns the Angle the HookShoulder is at to the Dashboard
+    	SmartDashboard.putNumber("HookShoulder Input", YAxisValue);
+    	SmartDashboard.putNumber("HookShoulder Move", HookShoulderMove);
     }
 
     // Called just before this Command runs the first time
@@ -75,8 +79,8 @@ public class HookShoulderUpDown extends Command {
     		HookShoulderMove = HookShoulderMove * HookPrecision;
     	}
     	//Returns the Angle the HookShoulder is at to the Dashboard
-    	SmartDashboard.putNumber("YAxisValue", YAxisValue);
-    	SmartDashboard.putNumber("HookShoulder Input", HookShoulderMove);
+    	SmartDashboard.putNumber("HookShoulder Input", YAxisValue);
+    	SmartDashboard.putNumber("HookShoulder Move", HookShoulderMove);
 
     	Robot.hookshoulder.UpAndDown(HookShoulderMove, Override); //TODO Took this out to test the dpad inputs, don't trust those
 

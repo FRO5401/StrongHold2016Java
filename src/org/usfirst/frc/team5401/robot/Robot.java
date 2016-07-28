@@ -49,6 +49,19 @@ public class Robot extends IterativeRobot {
 		scimitar = new Scimitar();
 		spt = new SPT();
 		
+		
+		SmartDashboard.putString("", "Autonomous");
+		
+		SmartDashboard.putString(" ", "Subsystems");
+		SmartDashboard.putString("  ", "DriveBase");
+		SmartDashboard.putString("   ", "HookShoulder");
+		SmartDashboard.putString("    ", "Feeder");
+		SmartDashboard.putString("     ", "Scimitar");
+		SmartDashboard.putString("      ", "Sharp Pointy Teeth");
+		
+		
+		
+		
 		autoChooser = new SendableChooser();
         autoChooser.addDefault("Do Nothing", new DoNothing());
         autoChooser.addObject("Reach Defense", new Reach());

@@ -28,8 +28,8 @@ public class SPT extends Subsystem {
 	final double SPT_DPP;
 	final double SPTMotorSpeed;
 
-	final float SPTDeliveryPosition;
-	final float SPTFeederPosition;
+//	final float SPTDeliveryPosition;
+//	final float SPTFeederPosition;
 
 	final double SPTMaxAngle;
 	final double SPTMinAngle;
@@ -49,9 +49,9 @@ public class SPT extends Subsystem {
     	SPTMotorMax	= 1;// Max motor speed
     	SPT_DPP = -0.3765;//Angles To Pulse
     	SPTMotorSpeed = 0.9;
-
-    	SPTDeliveryPosition = 55;//-34.677 from start
-    	SPTFeederPosition   = -21;//-112.146 from start
+//Not used
+//    	SPTDeliveryPosition = 55;//-34.677 from start
+//    	SPTFeederPosition   = -21;//-112.146 from start
     	
     	SPTMaxAngle	 = 85; //Measured 100 degrees  021616 //normally 98
     	SPTMinAngle	 = -48;
@@ -67,10 +67,8 @@ public class SPT extends Subsystem {
     //Thus if operator makes change to values, the code will automatically input that value.
     	SmartDashboard.putNumber("SPT Range", SPT_Range);
     	SmartDashboard.putNumber("SPT Offset", SPT_Offset);
-    	SmartDashboard.putNumber("SPTMotorMin", SPTMotorMin);
-    	SmartDashboard.putNumber("SPTMotorMax", SPTMotorMax);
-    	SmartDashboard.putNumber("SPTDeliveryPosition", SPTDeliveryPosition);
-    	SmartDashboard.putNumber("SPTFeederPosition", SPTFeederPosition);
+    	SmartDashboard.putNumber("SPT Max Angle", SPTMaxAngle);
+    	SmartDashboard.putNumber("SPT Min Angle", SPTMinAngle);
 	}
 	
 	//Can also be public
@@ -93,7 +91,7 @@ public class SPT extends Subsystem {
     	}
     	SPTShoulderMotor.set(-1 * SPTPrecision * ShoulderChangeValue);
 
-    	SmartDashboard.putNumber("SPTUpDown", ShoulderChangeValue);
+    	SmartDashboard.putNumber("SPT Input", ShoulderChangeValue);
     	SmartDashboard.putNumber("SPTEnc Raw", SPTEnc.get());
     	SmartDashboard.putNumber("SPTEnc", ReportAngle());//SPTEnc ->GetDistance());
     }
