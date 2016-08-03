@@ -76,7 +76,7 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto Defense", autoChooser);
         
         //Try this later
-        //SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
+        SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
         
         oi = new OI(); //Initialize OI ***AFTER*** all other subsystems
     }

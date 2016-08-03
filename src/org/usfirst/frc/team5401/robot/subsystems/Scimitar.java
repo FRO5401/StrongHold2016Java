@@ -41,13 +41,13 @@ public class Scimitar extends Subsystem {
 		ScimitarRightEnc		= new Encoder(RobotMap.Right_Enc_Scimitar_A, RobotMap.Right_Enc_Scimitar_B, true, Encoder.EncodingType.k1X);
 
 		SmartDashboard.putNumber("SCIM LeftEnc Dist", 0);
-		SmartDashboard.putNumber("SCIM LeftEnc Dist", 0);
+		SmartDashboard.putNumber("SCIM RightEnc Dist", 0);
 		SmartDashboard.putNumber("SCIM LeftEnc Raw", 0);
 		SmartDashboard.putNumber("SCIM RightEnc Raw", 0);
 		SmartDashboard.putBoolean("Scim R Far Limit", false);
 		SmartDashboard.putBoolean("Scim L Far Limit", false);
 		SmartDashboard.putBoolean("Scim R Close Limit", false);
-		SmartDashboard.putBoolean("Scim R Close Limit", false);
+		SmartDashboard.putBoolean("Scim L Close Limit", false);
 
 		RightFarLimit = new DigitalInput(RobotMap.RightFarLimit_Channel);
 		RightCloseLimit = new DigitalInput(RobotMap.RightCloseLimit_Channel);
