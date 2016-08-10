@@ -22,9 +22,10 @@ import com.googlecode.javacv.cpp.opencv_imgproc.*;
 */
 
 //import edu.wpi.first.smartdashboard.camera.WPICameraExtension;
-import edu.wpi.first.wpilibj.smartdashboard.*;//Don't know if need to be more specific
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;//Don't know if need to be more specific
+import edu.missdaisy.smartdashboard.daisycv.CameraExtension;//From Team 342
 //import edu.wpi.first.smartdashboard.robot.Robot;
-import org.usfirst.frc.team5401.robot.Robot;
+import org.usfirst.frc.team5401.robot.subsystems.DriveBase;//Might Change
 
 import edu.wpi.first.wpijavacv.DaisyExtensions;
 import edu.wpi.first.wpijavacv.WPIBinaryImage;
@@ -60,7 +61,7 @@ import javax.imageio.ImageIO;
  *
  * @author jrussell
  */
-public class DaisyCVWidget extends WPICameraExtension
+public class DaisyCVWidget //extends WPICameraExtension
 {
     public static final String NAME = "DaisyCV Target Tracker";
     private WPIColor targetColor = new WPIColor(0, 255, 0);
@@ -166,7 +167,8 @@ public class DaisyCVWidget extends WPICameraExtension
         {
             try
             {
-                heading = Robot.getTable().getDouble("Heading");
+//                heading = Robot.getTable().getDouble("Heading");
+//            	heading = Gyro.getTable().getDouble("Gyro getAngle");
             }
             catch( NoSuchElementException e)
             {
@@ -302,11 +304,11 @@ public class DaisyCVWidget extends WPICameraExtension
             if (!m_debugMode)
             {
 
-                Robot.getTable().beginTransaction();
-                Robot.getTable().putBoolean("found", true);
-                Robot.getTable().putDouble("azimuth", azimuth);
-                Robot.getTable().putDouble("rpms", rpms);
-                Robot.getTable().endTransaction();
+//                Robot.getTable().beginTransaction();
+//                Robot.getTable().putBoolean("found", true);
+//                Robot.getTable().putDouble("azimuth", azimuth);
+//                Robot.getTable().putDouble("rpms", rpms);
+//                Robot.getTable().endTransaction();
             } else
             {
                 System.out.println("Target found");
@@ -322,7 +324,7 @@ public class DaisyCVWidget extends WPICameraExtension
 
             if (!m_debugMode)
             {
-                Robot.getTable().putBoolean("found", false);
+//                Robot.getTable().putBoolean("found", false);
             } else
             {
                 System.out.println("Target not found");
