@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 //import org.usfirst.frc.team5401.robot.commands.XboxMove;
 //It is best to simply import all subsystems as all should be used here anyway
 import org.usfirst.frc.team5401.robot.subsystems.*;
-//import org.opencv.core.Core;
+import org.opencv.core.Core;
 
 /**
  * The VM is configured to automatically run this class, and to call the
