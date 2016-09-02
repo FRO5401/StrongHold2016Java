@@ -1,5 +1,7 @@
 package org.usfirst.frc.team5401.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -11,9 +13,40 @@ public class OI {
     // number it is.
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
+	
+	Joystick XboxController = new Joystick(1);
 
 	public OI() {
 		
+	}
+	
+	public double ReadXboxLeftStickX()
+	{
+		return XboxController.getRawAxis(0);
+	}
+
+	public double ReadXboxRightStickY(){
+		return	XboxController.getRawAxis(5);
+	}
+
+	public double getLeftTrigger()
+	{
+		return XboxController.getRawAxis(2);
+	}
+
+	public double getRightTrigger()
+	{
+		return XboxController.getRawAxis(3);
+	}
+	
+	public boolean getPrecision()
+	{
+		return XboxController.getRawButton(RobotMap.LBumper_ID);
+	}
+
+	public boolean getBrake()
+	{
+		return XboxController.getRawButton(RobotMap.RBumper_ID);
 	}
 
     // There are a few additional built in buttons you can use. Additionally,
