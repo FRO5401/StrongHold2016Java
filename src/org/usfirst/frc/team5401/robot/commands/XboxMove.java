@@ -9,13 +9,15 @@ import org.usfirst.frc.team5401.robot.RobotMap;
  */
 public class XboxMove extends Command {
 
-	private double Thresh;
+	private final double Thresh;
+	private final double SpinSensitivity;
 	
     public XboxMove() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drivebase);
     	Thresh = .1;
+    	SpinSensitivity = .5;
     }
 
     // Called just before this Command runs the first time
@@ -33,6 +35,16 @@ public class XboxMove extends Command {
     	double 	Reverse 	=	Robot.oi.getLeftTrigger();
     	boolean Precision   =	Robot.oi.getPrecision();
     	boolean Brake    	=   Robot.oi.getBrake();
+    	boolean Turn		= 	Robot.oi.getXboxL3();
+    	boolean Switch      =   Robot.oi.getXboxA();
+    	
+    	if (Switch){
+    	double temp = 0;
+    	temp = Throttle;
+    	Throttle = Reverse;
+    	Reverse = temp;
+    	Slew = Slew * -1;
+    	}
     		
     	if (Precision){
     		Sensitivity = RobotMap.Drive_Sensitivity_Precise;
@@ -43,6 +55,11 @@ public class XboxMove extends Command {
     	if (Brake){
     		Left = 0;
     		Right = 0;
+    	} else if (Turn) {
+    		if (Math.abs(Slew) > Thresh){
+    			Right = SpinSensitivity * Slew * -1;
+    			Left = SpinSensitivity * Slew;
+    		}
     	} else {
     		if (Slew > Thresh){	//If Slew is positive (Thumbstick pushed right), go Right
     			Left = (Throttle - Reverse);					//Send Left full power
@@ -55,8 +72,6 @@ public class XboxMove extends Command {
     			Right = (Throttle - Reverse);
     		}
     	}
-    	
-    	
     	
     	Robot.drivebase.Drive(Left * Sensitivity, Right * Sensitivity);
     }

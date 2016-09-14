@@ -46,7 +46,14 @@ public class OI {
 	public boolean getBrake(){
 		return XboxController.getRawButton(RobotMap.RBumper_ID);
 	}
-
+	
+	public boolean getXboxL3(){
+		return XboxController.getRawButton(RobotMap.XboxL3_ID);
+	}
+	
+	public boolean getXboxA(){
+		return XboxController.getRawButton(RobotMap.XboxA_ID);
+	}
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
