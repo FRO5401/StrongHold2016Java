@@ -39,13 +39,11 @@ public class OI {
 		return XboxController.getRawAxis(3);
 	}
 	
-	public boolean getPrecision()
-	{
+	public boolean getPrecision(){
 		return XboxController.getRawButton(RobotMap.LBumper_ID);
 	}
-
-	public boolean getBrake()
-	{
+	
+	public boolean getBrake(){
 		return XboxController.getRawButton(RobotMap.RBumper_ID);
 	}
 

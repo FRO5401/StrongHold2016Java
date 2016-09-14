@@ -9,7 +9,7 @@ import org.usfirst.frc.team5401.robot.RobotMap;
  */
 public class XboxMove extends Command {
 
-	private final double Thresh;
+	private double Thresh;
 	
     public XboxMove() {
         // Use requires() here to declare subsystem dependencies
@@ -25,38 +25,42 @@ public class XboxMove extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double Left = 0, Right = 0, Sensitivity;
+    	double Left = 0, Right = 0;
+    	double Sensitivity;
     	
     	double 	Slew        =	Robot.oi.ReadXboxLeftStickX();
     	double 	Throttle 	=	Robot.oi.getRightTrigger();
     	double 	Reverse 	=	Robot.oi.getLeftTrigger();
-    	boolean Precision	=	Robot.oi.getPrecision();
-    	boolean Brake		=	Robot.oi.getBrake();
-
-    	if (Precision) { //Sets drive precision based on RobotMap and Precision Mode
-    		Sensitivity	=	RobotMap.Drive_Sensitivity_Precise;
+    	boolean Precision   =	Robot.oi.getPrecision();
+    	boolean Brake    	=   Robot.oi.getBrake();
+    		
+    	if (Precision){
+    		Sensitivity = RobotMap.Drive_Sensitivity_Precise;
     	} else {
-    		Sensitivity	=	RobotMap.Drive_Sensitivity_Default;
+    		Sensitivity = RobotMap.Drive_Sensitivity_Default;
     	}
     	
-    	if (Brake) {		//brake
+    	if (Brake){
     		Left = 0;
     		Right = 0;
-    	} else { 	//drive normally
+    	} else {
     		if (Slew > Thresh){	//If Slew is positive (Thumbstick pushed right), go Right
-    			Left = (Throttle - Reverse) * Sensitivity;					//Send Left full power
-    			Right = (Throttle - Reverse) * Sensitivity * (1 - Slew);	//Send Right partial power, tempered by how hard the thumbstick is being pushed
-    		} else if (Slew < (-1 * Thresh)){	//If Slew is negative (Thumbstick pushed left), go Left
-    			Left = (Throttle - Reverse) * Sensitivity * (1 + Slew);		//Send Left partial power, tempered by how hard thumbstick is being pushed left
-    			Right = (Throttle - Reverse) * Sensitivity; 				//Send Right full power
+    			Left = (Throttle - Reverse);					//Send Left full power
+    			Right = (Throttle - Reverse) * (1 - Slew);	//Send Right partial power, tempered by how hard the thumbstick is being pushed
+    		} else if (Slew < (Thresh * -1)){	//If Slew is negative (Thumbstick pushed left), go Left
+    			Left = (Throttle - Reverse) * (1 + Slew);		//Send Left partial power, tempered by how hard thumbstick is being pushed left
+    			Right = (Throttle - Reverse); 				//Send Right full power
     		} else {//if (Slew < Thresh && Slew > (-1 * Thresh)) //drive forward
-    			Left = (Throttle - Reverse) * Sensitivity;
-    			Right = (Throttle - Reverse) * Sensitivity;
+    			Left = (Throttle - Reverse);
+    			Right = (Throttle - Reverse);
     		}
     	}
     	
-    	Robot.drivebase.Drive(Left, Right);
+    	
+    	
+    	Robot.drivebase.Drive(Left * Sensitivity, Right * Sensitivity);
     }
+   
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
