@@ -13,7 +13,7 @@ public class OuterFeeder extends Command {
     public OuterFeeder(int direction) {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.feeder);
-        inOrOut = direction;
+        inOrOut = direction * -1;
     }
 
     // Called just before this Command runs the first time
