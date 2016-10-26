@@ -175,7 +175,7 @@ public class OI {
 	}
 
 	public boolean getMOHRightStickButton(){
-		return MedalOfHonorController.getRawButton(12);
+		return MedalOfHonorController.getRawButton(10);
 	}
 
 	public boolean getMOHButtonL3(){
