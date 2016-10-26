@@ -67,10 +67,10 @@ public class Robot extends IterativeRobot {
         //SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
         
         //Camera Initiation Code
-        /*CameraServer camera = CameraServer.getInstance();
+        CameraServer camera = CameraServer.getInstance();
         camera.setQuality(50);
         camera.startAutomaticCapture("cam0");
-        */
+        
         oi = new OI(); //Initialize OI ***AFTER*** all other subsystems
     }
 	
