@@ -171,7 +171,7 @@ public class OI {
 	}
 
 	public double ReadMOHRightStickY(){
-		return MedalOfHonorController.getRawAxis(3);
+		return MedalOfHonorController.getRawAxis(5);
 	}
 
 	public boolean getMOHRightStickButton(){
