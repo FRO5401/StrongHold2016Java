@@ -45,7 +45,7 @@ public class RobotMap {
 	public static final int Back_ID		=	7;
 	public static final int XboxL3_ID		=	9;
 	public static final int MOHStartID	=	10;
-	public static final int MOHL3_ID		= 	11;
+	public static final int MOHL3_ID		= 	9;
 
 	/****************
 	 * End Controllers
