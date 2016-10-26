@@ -49,14 +49,14 @@ public class OI {
 	public OI(){
 		
 		//Feeder Buttons; 1 = in, -1 = out
-		MOHRightTrigger.whenPressed(new OuterFeeder(1));
-		MOHRightTrigger.whenReleased(new StopFeeder());
+		/*MOHRightTrigger*/ MOHButtonSquare.whenPressed(new OuterFeeder(1));
+		/*MOHRightTrigger*/ MOHButtonSquare.whenReleased(new StopFeeder());
 
-		MOHLeftTrigger.whenPressed(new OuterFeeder(-1));
-		MOHLeftTrigger.whenReleased(new StopFeeder());
+		/*MOHLeftTrigger*/ MOHButtonX.whenPressed(new OuterFeeder(-1));
+		/*MOHLeftTrigger*/ MOHButtonX.whenReleased(new StopFeeder());
 
-		MOHLeftBumper.whenPressed(new InnerFeeder(-1));
-		MOHLeftBumper.whenReleased(new StopFeeder());
+		/*MOHLeftBumper*/ MOHButtonCircle.whenPressed(new InnerFeeder(-1));
+		/*MOHLeftBumper*/ MOHButtonCircle.whenReleased(new StopFeeder());
 		
 //		MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
 	}	
