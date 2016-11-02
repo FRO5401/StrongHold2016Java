@@ -1,8 +1,6 @@
 
 package org.usfirst.frc.team5401.robot;
 
-import java.io.IOException;//Needed for GRIP
-
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,8 +10,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;//Needed for GRIP
-
 import org.usfirst.frc.team5401.robot.subsystems.*;
 
 import autonomous.*;
@@ -41,17 +37,12 @@ public class Robot extends IterativeRobot {
 	//public static OI RobotMap;
 	private static SendableChooser autoChooser;
 	
-	//GRIP GRIP's GitHub Wiki
-	private final NetworkTable grip = NetworkTable.getTable("grip");
-	
     Command autonomousCommand;
 
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    //Might be necessary. Listed in code from GRIP's GitHub Wiki
-    //@Override
     public void robotInit() {
     	drivebase = new DriveBase();
 		hookshoulder = new HookShoulder();
@@ -80,14 +71,6 @@ public class Robot extends IterativeRobot {
         camera.setQuality(50);
         camera.startAutomaticCapture("cam0");
         
-        //GRIP from GRIP's GitHub Wiki
-        //Runs GRIP in new process
-        try{
-        	new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
-        }catch (IOException e) {
-        	e.printStackTrace();
-        }
-        
         oi = new OI(); //Initialize OI ***AFTER*** all other subsystems
     }
 	
@@ -104,16 +87,8 @@ public class Robot extends IterativeRobot {
     /**
      * This function is called periodically during autonomous
      */
-    
-    //Might be necessary. Listed in code from GRIP's GitHub Wiki
-    //@Override
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
-        //GRIP from GRIP's GitHub Wiki
-        //Get Published values from GRIP using NetworkTables
-        for(double area: grip.getNumberArray("targets/area", new double[0])) {
-        	System.out.println("Got contour with area = " + area);
-        }
     }
 
     public void teleopInit() {
