@@ -74,12 +74,12 @@ public class Robot extends IterativeRobot {
         
         //Try this later
         //SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
-        
+/* 
         //Camera Initiation Code
         CameraServer camera = CameraServer.getInstance();
         camera.setQuality(50);
         camera.startAutomaticCapture("cam0");
-        
+*/
         //GRIP from GRIP's GitHub Wiki
         //Runs GRIP in new process
         try{
