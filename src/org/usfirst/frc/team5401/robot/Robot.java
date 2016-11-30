@@ -42,7 +42,7 @@ public class Robot extends IterativeRobot {
 	private static SendableChooser autoChooser;
 	
 	//GRIP GRIP's GitHub Wiki
-	private final NetworkTable grip = NetworkTable.getTable("grip");
+//	private final NetworkTable grip = NetworkTable.getTable("grip");
 	
     Command autonomousCommand;
 
@@ -82,12 +82,12 @@ public class Robot extends IterativeRobot {
 */
         //GRIP from GRIP's GitHub Wiki
         //Runs GRIP in new process
-        try{
+/*        try{
         	new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
         }catch (IOException e) {
         	e.printStackTrace();
         }
-        
+*/        
         oi = new OI(); //Initialize OI ***AFTER*** all other subsystems
     }
 	
@@ -107,7 +107,7 @@ public class Robot extends IterativeRobot {
     
     //Might be necessary. Listed in code from GRIP's GitHub Wiki
     //@Override
-    public void autonomousPeriodic() {
+/*    public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         //GRIP from GRIP's GitHub Wiki
         //Get Published values from GRIP using NetworkTables
@@ -115,7 +115,7 @@ public class Robot extends IterativeRobot {
         	System.out.println("Got contour with area = " + area);
         }
     }
-
+*/
     public void teleopInit() {
 		// This makes sure that the autonomous stops running when
         // teleop starts running. If you want the autonomous to 
