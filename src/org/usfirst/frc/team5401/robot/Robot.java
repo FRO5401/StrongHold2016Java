@@ -18,7 +18,8 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
 public class Robot extends IterativeRobot {
 	
 	public static OI oi;
-	public static DriveBase drivebase;
+	//public static DriveBase drivebase;
+	public static PIDDriveBase pidDriveBase;
 	
     Command autonomousCommand;
 
@@ -27,7 +28,8 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-    	drivebase = new DriveBase();
+    	//drivebase = new DriveBase();
+    	pidDriveBase = new PIDDriveBase();
 		oi = new OI();
         // instantiate the command used for the autonomous period
 		//autonomousCommand = new ExampleCommand();
