@@ -1,7 +1,7 @@
 package org.usfirst.frc.team5401.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 //This is preferred
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Encoder;
@@ -16,6 +16,8 @@ import org.usfirst.frc.team5401.robot.RobotMap;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.commands.XboxMove;
+import edu.wpi.first.wpilibj.networktables.*;
+
 /**
  *
  */
@@ -23,6 +25,10 @@ public class DriveBase extends Subsystem {
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
+	
+	static NetworkTable RioTable;
+	double NetworkX = 0;
+	double NetworkY = 0;
     
 	private double kP_Right;
 	private double kP_Left;
@@ -110,6 +116,11 @@ public class DriveBase extends Subsystem {
 //    SmartDashboard.putNumber("Gyro Angle", ReportGyro());	//doesn't work for some reason
     SmartDashboard.putNumber("Gyro getAngle", MainGyro .getAngle());
     SmartDashboard.putNumber("Gyro ReportGyro", ReportGyro());
+	NetworkX =  RioTable.getNumber("Y",-99);
+	NetworkY = RioTable.getNumber("X",-99);
+	System.out.println(NetworkX);
+	System.out.println(NetworkY);
+
     }
 
   public void Stop()
