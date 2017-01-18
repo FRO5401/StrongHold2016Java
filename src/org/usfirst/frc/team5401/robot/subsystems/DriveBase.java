@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.networktables.*;
+import edu.wpi.first.wpilibj.networktables.*;//XXX
 
 
 //OR 
@@ -24,7 +24,7 @@ public class DriveBase extends Subsystem {
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	static NetworkTable RioTable;
+	static NetworkTable RioTable;//XXX
 	double NetworkX = 0;
 	double NetworkY = 0;
 	
@@ -114,10 +114,10 @@ public class DriveBase extends Subsystem {
 //    SmartDashboard.putNumber("Gyro Angle", ReportGyro());	//doesn't work for some reason
     SmartDashboard.putNumber("Gyro getAngle", MainGyro .getAngle());
     SmartDashboard.putNumber("Gyro ReportGyro", ReportGyro());
-    RioTable = NetworkTable.getTable("PipeLineOut");
+    RioTable = NetworkTable.getTable("PipeLineOut");//XXX
 
-	NetworkX =  RioTable.getNumber("Y",-99);
-	NetworkY = RioTable.getNumber("X",-99);
+	NetworkX =  RioTable.getNumber("Y",-99);//XXX
+	NetworkY = RioTable.getNumber("X",-99);//XXX
 	System.out.println(NetworkX);
 	System.out.println(NetworkY);
     }
