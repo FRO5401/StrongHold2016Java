@@ -20,10 +20,12 @@ public class DriveStraight extends Command {
     }
 
     protected void execute() {
+    	//get pid values
+    	
     }
 
     protected boolean isFinished() {
-        return Math.abs(Robot.pidDriveBase.getSetpoint() - Robot.pidDriveBase.getPosition()) < 0.1;
+        return false;
     }
 
     protected void end() {
