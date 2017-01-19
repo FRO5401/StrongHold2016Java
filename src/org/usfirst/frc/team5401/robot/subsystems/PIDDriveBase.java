@@ -38,10 +38,16 @@ public class PIDDriveBase extends PIDSubsystem {
 	protected double returnPIDInput() {
 		return MainGyro.getAngle();
 	}
-
+	
 	@Override
 	protected void usePIDOutput(double output) {
-		
+		if (MainGyro.getAngle() < -1) { //left
+			drive((output / 360), 0);
+		} else if (MainGyro.getAngle() > 1) { //right
+			drive(0, (output / 360));
+		} else { //straight
+			drive(.5, .5);
+		}
 	}
 
 	@Override
