@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5401.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc.team5401.robot.Robot;
 
 /**
@@ -15,13 +16,11 @@ public class DriveStraight extends Command {
     }
 
     protected void initialize() {
-    	Robot.pidDriveBase.setSetpoint(0);
     	Robot.pidDriveBase.enable();
     }
 
     protected void execute() {
-    	//get pid values
-    	
+    	Robot.pidDriveBase.setSetpoint(0);
     }
 
     protected boolean isFinished() {
