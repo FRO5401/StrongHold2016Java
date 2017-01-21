@@ -46,9 +46,11 @@ public class DriveStraight extends Command {
 
     protected void end() {
     	Robot.pidDriveBase.disable();
+    	Robot.pidDriveBase.brake();
     }
 
     protected void interrupted() {
     	Robot.pidDriveBase.disable();
+    	Robot.pidDriveBase.brake();
     }
 }

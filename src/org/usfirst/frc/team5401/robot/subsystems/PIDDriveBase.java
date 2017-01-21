@@ -2,6 +2,7 @@ package org.usfirst.frc.team5401.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.commands.DriveStraight;
 import org.usfirst.frc.team5401.robot.RobotMap;
@@ -17,7 +18,9 @@ public class PIDDriveBase extends PIDSubsystem {
 	private ADXRS450_Gyro MainGyro;
 	
 	public PIDDriveBase () {
-		super("PIDDriveBase", 3, 0.2, 0.1); //pid gains 
+		super("PIDDriveBase", 1.0, 1.0, 0.0); //pid gains 
+		setInputRange(-90, 90);
+		setOutputRange(-90, 90);
 		
 		LeftDrive1 = new Victor(RobotMap.LeftMotor1);
 		LeftDrive2 = new Victor(RobotMap.LeftMotor2);
@@ -25,6 +28,7 @@ public class PIDDriveBase extends PIDSubsystem {
 		RightDrive2 = new Victor(RobotMap.RightMotor2);
 		
 		MainGyro = new ADXRS450_Gyro();
+		MainGyro.calibrate();
 		MainGyro.reset();
 	}
 	
@@ -33,10 +37,7 @@ public class PIDDriveBase extends PIDSubsystem {
 	}
 	
 	public void turnRight () {
-		LeftDrive1.set(.5);
-		LeftDrive2.set(.5);
-		RightDrive1.set(0);
-		RightDrive2.set(0);
+		drive(.5, 0);
 	}
 	
 	public void drive (double leftDesired, double rightDesired) {
@@ -47,10 +48,7 @@ public class PIDDriveBase extends PIDSubsystem {
 	}
 	
 	public void brake () {
-		LeftDrive1.set(0);
-		LeftDrive2.set(0);
-		RightDrive1.set(0);
-		RightDrive2.set(0);
+		drive(0, 0);
 	}
 	
 	@Override
@@ -60,9 +58,10 @@ public class PIDDriveBase extends PIDSubsystem {
 	
 	@Override
 	protected void usePIDOutput(double output) {
-		if (MainGyro.getAngle() < -1) { //left
+		SmartDashboard.putNumber("Gyro Value", getGyro());
+		if (getGyro() < -5) { //left
 			drive((output), 0);
-		} else if (MainGyro.getAngle() > 1) { //right
+		} else if (getGyro() > 5) { //right
 			drive(0, (output));
 		} else { //straight
 			drive(.5, .5);

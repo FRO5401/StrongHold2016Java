@@ -16,14 +16,14 @@ public class OI {
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
 	
-	Joystick XboxController = new Joystick(0);
+	Joystick XboxController = new Joystick(1);
 	
 	JoystickButton XboxA = new JoystickButton(XboxController, 1);
 	JoystickButton XboxB = new JoystickButton(XboxController, 2);
 	
 	public OI() {
-		XboxA.whenPressed(new TurnRight());
-		XboxB.whenPressed(new DriveStraight());
+		XboxA.whileHeld(new TurnRight());
+		XboxB.whileHeld(new DriveStraight());
 	}
 	
 	public double ReadXboxLeftStickX()
