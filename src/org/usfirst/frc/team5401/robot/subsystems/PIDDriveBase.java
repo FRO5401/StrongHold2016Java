@@ -17,7 +17,7 @@ public class PIDDriveBase extends PIDSubsystem {
 	private ADXRS450_Gyro MainGyro;
 	
 	public PIDDriveBase () {
-		super("PIDDriveBase", 1.0, 0.0, 0.0); //p,i,d values
+		super("PIDDriveBase", 3, 0.2, 0.1); //pid gains 
 		
 		LeftDrive1 = new Victor(RobotMap.LeftMotor1);
 		LeftDrive2 = new Victor(RobotMap.LeftMotor2);
@@ -32,11 +32,25 @@ public class PIDDriveBase extends PIDSubsystem {
 		return MainGyro.getAngle();
 	}
 	
+	public void turnRight () {
+		LeftDrive1.set(.5);
+		LeftDrive2.set(.5);
+		RightDrive1.set(0);
+		RightDrive2.set(0);
+	}
+	
 	public void drive (double leftDesired, double rightDesired) {
 		LeftDrive1.set(-leftDesired);
 		LeftDrive2.set(-leftDesired);
 		RightDrive1.set(rightDesired);
 		RightDrive2.set(rightDesired);
+	}
+	
+	public void brake () {
+		LeftDrive1.set(0);
+		LeftDrive2.set(0);
+		RightDrive1.set(0);
+		RightDrive2.set(0);
 	}
 	
 	@Override
@@ -57,7 +71,7 @@ public class PIDDriveBase extends PIDSubsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new DriveStraight());
+		//setDefaultCommand(new DriveStraight());
 	}
 
 }

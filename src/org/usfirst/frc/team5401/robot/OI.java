@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5401.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import org.usfirst.frc.team5401.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -14,10 +16,14 @@ public class OI {
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
 	
-	Joystick XboxController = new Joystick(1);
-
+	Joystick XboxController = new Joystick(0);
+	
+	JoystickButton XboxA = new JoystickButton(XboxController, 1);
+	JoystickButton XboxB = new JoystickButton(XboxController, 2);
+	
 	public OI() {
-		
+		XboxA.whenPressed(new TurnRight());
+		XboxB.whenPressed(new DriveStraight());
 	}
 	
 	public double ReadXboxLeftStickX()
@@ -53,6 +59,10 @@ public class OI {
 	
 	public boolean getXboxA(){
 		return XboxController.getRawButton(RobotMap.XboxA_ID);
+	}
+	
+	public boolean getXboxB(){
+		return XboxController.getRawButton(RobotMap.XboxB_ID);
 	}
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
