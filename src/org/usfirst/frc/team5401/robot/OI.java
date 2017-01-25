@@ -58,6 +58,7 @@ public class OI {
 		/*MOHLeftBumper*/ MOHButtonCircle.whenPressed(new InnerFeeder(-1));
 		/*MOHLeftBumper*/ MOHButtonCircle.whenReleased(new StopFeeder());
 		
+		XboxA.toggleWhenPressed(new XboxMove());
 //		MOHButtonSquare.whenPressed(new ScimitarMoveToPositionZero());
 	}	
 
