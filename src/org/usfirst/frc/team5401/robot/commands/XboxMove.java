@@ -35,7 +35,7 @@ public class XboxMove extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double 	Slew        =	Robot.oi.ReadXboxLeftStickX();
+/*    	double 	Slew        =	Robot.oi.ReadXboxLeftStickX();
     	double 	Throttle 	=	Robot.oi.getRightTrigger();
     	double 	Reverse 	=	Robot.oi.getLeftTrigger();
     	boolean Precision	=	Robot.oi.getPrecision();
@@ -107,25 +107,25 @@ public class XboxMove extends Command {
     		SmartDashboard.putbooleanean("Precision",Precision);
     		SmartDashboard.putbooleanean("Brake",Brake);
     	*/
-    	SmartDashboard.putNumber("Teleop heading", heading);
+/*    	SmartDashboard.putNumber("Teleop heading", heading);
     	SmartDashboard.putNumber("Teleop Drift", drift);
-
-    	Robot.drivebase.Drive(Left, Right);
+*/
+    	Robot.drivebase.Drive(1, -1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivebase.Stop();
+//    	Robot.drivebase.Stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drivebase.Stop();
+//    	Robot.drivebase.Stop();
     }
 }
