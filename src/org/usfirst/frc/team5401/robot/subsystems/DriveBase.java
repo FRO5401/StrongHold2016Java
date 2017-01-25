@@ -173,6 +173,12 @@ public class DriveBase extends Subsystem {
 	//error: cannot convert double to float, so I used casting
   	return (float)((RightEnc.getDistance() + LeftEnc.getDistance())/2);
   }
+  
+  public void resetTimer(){
+	  TimeCount.stop();
+	  TimeCount.reset();
+	  TimeCount.start();
+  }
 
 }
 
