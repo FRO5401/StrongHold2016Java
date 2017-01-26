@@ -179,6 +179,15 @@ public class DriveBase extends Subsystem {
 	  TimeCount.reset();
 	  TimeCount.start();
   }
+  
+  public void displayTimer(){
+	  double time = TimeCount.get();
+	  SmartDashboard.putNumber("sfhdfldsfhsdlfhaslfdsh;sakjfs;klfjdas;lsjf;lsjflsdjfsklfjsflasjf;dfa;kfdjfasjfklds;fj;afkljdsa;fjsf", time);
+  }
+  
+  public void delayTimer(){
+	  
+  }
 
 }
 

@@ -2,6 +2,7 @@ package org.usfirst.frc.team5401.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.command.WaitCommand;
 
 import org.usfirst.frc.team5401.robot.Robot;
 import org.usfirst.frc.team5401.robot.RobotMap;
@@ -26,11 +27,15 @@ public class XboxMove extends Command {
     	kP_Drift = 0; //TODO Redetermine this number
     	SmartDashboard.putNumber("Drift kP", kP_Drift);
     	SmartDashboard.putNumber("Teleop heading", heading);
+//   	Robot.drivebase.Drive(-0.5, 0.5);
+//    	Robot.drivebase.delayTimer();
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.drivebase.Reset();
+//    	Robot.drivebase.Reset();
+		Robot.drivebase.Drive(-0.5, 0.5);
+    	Robot.drivebase.resetTimer();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -111,6 +116,7 @@ public class XboxMove extends Command {
     	SmartDashboard.putNumber("Teleop Drift", drift);
 */
     	Robot.drivebase.Drive(1, -1);
+    	Robot.drivebase.displayTimer();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -126,6 +132,9 @@ public class XboxMove extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.drivebase.Stop();
+//    	Robot.drivebase.resetTimer();
+//    	Robot.drivebase.Stop();
+    	Robot.drivebase.Drive(-1,1);
+//    	Robot.drivebase.displayTimer();
     }
 }
