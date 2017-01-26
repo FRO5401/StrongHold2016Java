@@ -34,8 +34,8 @@ public class Robot extends IterativeRobot {
 		//putting this here gets rid of the need to import RobotMap when needed
 		//Considering this is Java and memory could be an issue, probably not a good idea :)
 	//public static OI RobotMap;
-	private static SendableChooser autoChooser;
 	
+	SendableChooser<Command> autoChooser;
     Command autonomousCommand;
 
     /**
@@ -62,7 +62,7 @@ public class Robot extends IterativeRobot {
 		
 		
 		
-		autoChooser = new SendableChooser();
+		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Do Nothing", new DoNothing());
         autoChooser.addObject("Reach Defense", new Reach());
         autoChooser.addObject("Rock Wall (Hook Forwards)", new RockWall());
@@ -76,7 +76,11 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putData("Auto Defense", autoChooser);
         
         //Try this later
-        SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
+//        SmartDashboard.putData(Scheduler.getInstance()); //Shows everything the robot is running. In theory.
+        
+        SmartDashboard.putString("Periodic Auto Command: ", "Nothing Selected");
+        SmartDashboard.putBoolean("Periodic Auto Run: ", false);
+        
         
         oi = new OI(); //Initialize OI ***AFTER*** all other subsystems
     }
@@ -89,6 +93,9 @@ public class Robot extends IterativeRobot {
         // schedule the autonomous command (example)
     	autonomousCommand = (Command)autoChooser.getSelected();
         if (autonomousCommand != null) autonomousCommand.start();
+        
+       // SmartDashboard.putData("Running Auto Command: ",(Command)autoChooser.getSelected());
+        //SmartDashboard.putString(key, value)
     }
 
     /**
@@ -96,6 +103,14 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        
+        
+        if (autonomousCommand != null) {
+        	SmartDashboard.putString("Periodic Auto Command: ", autonomousCommand.getName());
+        	SmartDashboard.putBoolean("Periodic Auto Run: ", autonomousCommand.isRunning());
+        } else {
+        	SmartDashboard.putString("SMARTDASHBOARD", "NULL")
+;        }
     }
 
     public void teleopInit() {
@@ -104,6 +119,9 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        SmartDashboard.putString("Periodic Auto Command: ", "Teleop");
+        SmartDashboard.putBoolean("Periodic Auto Run: ", false);
     }
 
     /**
@@ -111,6 +129,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
+    	SmartDashboard.putString("Periodic Auto Command: ", "Nothing Selected");
 
     }
 
