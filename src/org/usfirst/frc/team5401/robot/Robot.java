@@ -25,10 +25,10 @@ public class Robot extends IterativeRobot {
 	
 	//XXX This area is basically your CommandBase::init() from C++
 	public static DriveBase drivebase;
-	public static HookShoulder hookshoulder;
+/*	public static HookShoulder hookshoulder;
 	public static Feeder feeder;
 	public static Scimitar scimitar;
-	public static SPT spt;
+	public static SPT spt; */
 	public static OI oi;
 	//Something I'm thinking of adding
 		//putting this here gets rid of the need to import RobotMap when needed
@@ -44,11 +44,11 @@ public class Robot extends IterativeRobot {
      */
     public void robotInit() {
     	drivebase = new DriveBase();
-		hookshoulder = new HookShoulder();
+/*		hookshoulder = new HookShoulder();
 		feeder = new Feeder();
 		scimitar = new Scimitar();
 		spt = new SPT();
-		
+		*/
 		
 		SmartDashboard.putString("", "Autonomous");
 		
@@ -65,13 +65,13 @@ public class Robot extends IterativeRobot {
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Do Nothing", new DoNothing());
         autoChooser.addObject("Reach Defense", new Reach());
-        autoChooser.addObject("Rock Wall (Hook Forwards)", new RockWall());
-        autoChooser.addObject("RockWall & Turn (Hook Forwards)", new RockWallAndTurn());
-        autoChooser.addObject("Rough Terrain (Hook Forwards)", new RoughTerrain());
-        autoChooser.addObject("Low Bar & SCORE (SPT Forwards)", new LowBar());
-        autoChooser.addObject("Low Bar CROSS ONLY (SPT Forwards)", new LowBarNoScore());
-        autoChooser.addObject("Portcullis (SPT Forwards)", new Portcullis());
-        autoChooser.addObject("Hook Scimitar on Bumper", new AutoHookScimitarOnBumper());
+//        autoChooser.addObject("Rock Wall (Hook Forwards)", new RockWall());
+//        autoChooser.addObject("RockWall & Turn (Hook Forwards)", new RockWallAndTurn());
+//        autoChooser.addObject("Rough Terrain (Hook Forwards)", new RoughTerrain());
+//        autoChooser.addObject("Low Bar & SCORE (SPT Forwards)", new LowBar());
+//        autoChooser.addObject("Low Bar CROSS ONLY (SPT Forwards)", new LowBarNoScore());
+//        autoChooser.addObject("Portcullis (SPT Forwards)", new Portcullis());
+ //       autoChooser.addObject("Hook Scimitar on Bumper", new AutoHookScimitarOnBumper());
         
         SmartDashboard.putData("Auto Defense", autoChooser);
         

@@ -18,12 +18,22 @@ public class XboxMove extends Command {
 	private final double Thresh		=	0.1; //Set Dead Zone threshold for thumbstick so small movements don't mess things up
 	private final double SpinSensitivity	= .5;
 	
+	private double testInput;
+	private double testOutput;
+	private double garbage;
+	
     public XboxMove() {
         // Use requires() here to declare subsystem dependencies
         requires(Robot.drivebase);
         drift = 0;
     	heading = Robot.drivebase.ReportGyro();
     	kP_Drift = 0; //TODO Redetermine this number
+    	
+    	testInput = -99;
+    	testOutput = 100;
+    	SmartDashboard.putNumber("Test Input:", testInput);
+    	SmartDashboard.putNumber("Test Output:", testOutput);
+    	garbage = testInput;
     }
 
     // Called just before this Command runs the first time
@@ -105,7 +115,16 @@ public class XboxMove extends Command {
     	*/
     	SmartDashboard.putNumber("Teleop heading", heading);
     	SmartDashboard.putNumber("Teleop Drift", drift);
-
+    	
+    	testInput = SmartDashboard.getNumber("Test Input:", testInput);
+    	if (testInput != garbage)
+    		testOutput = testInput;
+    	SmartDashboard.putNumber("Test Output:", testOutput);
+    	
+    	System.out.println("XBOXMOVE RUN");
+    	System.out.println("TEST INPUT:  " + testInput);
+    	System.out.println("TEST OUTPUT: " + testOutput);
+    	
     	Robot.drivebase.Drive(Left, Right);
     }
 

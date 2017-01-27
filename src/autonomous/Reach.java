@@ -10,7 +10,7 @@ public class Reach extends CommandGroup {
 	private double driveSpeed;
 	
     public  Reach() {
-    	driveSpeed = .85;
+    	driveSpeed = .33;//.85;
     	
     	addSequential(new AutoDrive(48, driveSpeed));
     }
