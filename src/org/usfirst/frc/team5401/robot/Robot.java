@@ -36,7 +36,9 @@ public class Robot extends IterativeRobot {
 	//public static OI RobotMap;
 	
 	SendableChooser<Command> autoChooser;
+//	SendableChooser test;
     Command autonomousCommand;
+    Command tempCommand;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -60,7 +62,8 @@ public class Robot extends IterativeRobot {
 		SmartDashboard.putString("      ", "Sharp Pointy Teeth");
 		
 		
-		
+		tempCommand = new DoNothing();
+		autonomousCommand = new DoNothing();
 		
 		autoChooser = new SendableChooser<Command>();
         autoChooser.addDefault("Do Nothing", new DoNothing());
@@ -81,7 +84,6 @@ public class Robot extends IterativeRobot {
         SmartDashboard.putString("Periodic Auto Command: ", "Nothing Selected");
         SmartDashboard.putBoolean("Periodic Auto Run: ", false);
         
-        
         oi = new OI(); //Initialize OI ***AFTER*** all other subsystems
     }
 	
@@ -91,8 +93,10 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	
     	autonomousCommand = (Command)autoChooser.getSelected();
-        if (autonomousCommand != null) autonomousCommand.start();
+        //autonomousCommand = (Command)SmartDashboard.getData("Auto Defense");
+    	if (autonomousCommand != null) autonomousCommand.start();
         
        // SmartDashboard.putData("Running Auto Command: ",(Command)autoChooser.getSelected());
         //SmartDashboard.putString(key, value)
